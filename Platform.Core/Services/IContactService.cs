@@ -8,6 +8,6 @@ namespace Platform.Core.Services
     public interface IContactService : IDisposable
     {
         Task<List<ContactListModel>> GetAllContacts();
-        Task<bool> CreateUser(ContactModel contact);
+        Task<bool> CreateContact(ContactModel contact);
     }
 }

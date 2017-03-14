@@ -12,7 +12,7 @@
         
         public string Email { get; set; }
         
-        public int VatNumber { get; set; }
+        public string VatNumber { get; set; }
         
         public string PhoneNumber { get; set; }
 
