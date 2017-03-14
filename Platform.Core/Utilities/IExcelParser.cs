@@ -6,5 +6,6 @@ namespace Platform.Core.Utilities
     public interface IExcelParser<T>
     {
         IEnumerable<T> ParseFromStream(Stream stream);
+        MemoryStream ParseToStream(IList<T> model);
     }
 }
