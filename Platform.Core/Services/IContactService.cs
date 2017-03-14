@@ -9,5 +9,6 @@ namespace Platform.Core.Services
     {
         Task<List<ContactListModel>> GetAllContacts();
         Task<bool> CreateContact(ContactModel contact);
+        Task<bool> CreateContact(FastContactModel contact);
     }
 }

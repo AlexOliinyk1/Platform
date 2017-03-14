@@ -24,39 +24,36 @@ namespace Platform.DataAccess.Resources.Repositories
 
         public Task<bool> CreateContact(ContactModel contact)
         {
-            return Task<bool>.Factory.StartNew(() =>
+            Contact newContact = new Contact
             {
-                Contact newContact = new Contact
+                Name = contact.Name,
+                ContatctType = contact.ContactType,
+                IsCompany = contact.IsCompany,
+                Email = contact.Email,
+                VatNumber = contact.VatNumber,
+                PhoneNumber = contact.PhoneNumber,
+                Title = contact.Title,
+                Address = new Address
                 {
-                    Name = contact.Name,
-                    ContatctType = contact.ContactType,
-                    IsCompany = contact.IsCompany,
-                    Email = contact.Email,
-                    VatNumber = contact.VatNumber,
-                    PhoneNumber = contact.PhoneNumber,
-                    Title = contact.Title,
-                    Address = new Address
-                    {
-                        AddressLine = contact.Street,
-                        City = contact.City,
-                        Country = contact.Country,
-                        Zip = contact.Zip
-                    }
-                };
-
-                try
-                {
-                    _context.Contacts.AddOrUpdate(newContact);
-                    _context.SaveChanges();
-
-                    return true;
+                    AddressLine = contact.Street,
+                    City = contact.City,
+                    Country = contact.Country,
+                    Zip = contact.Zip
                 }
-                catch (Exception)
-                {
-                    return false;
-                }
+            };
 
-            });
+            return CreateContact(newContact);
+        }
+
+        public Task<bool> CreateContact(FastContactModel contact)
+        {
+            Contact newContact = new Contact
+            {
+                Name = contact.Name,
+                PhoneNumber = contact.PhoneNumber
+            };
+
+            return CreateContact(newContact);
         }
 
         public Task<List<ContactListModel>> GetAllContacts()
@@ -73,10 +70,28 @@ namespace Platform.DataAccess.Resources.Repositories
 
         }
 
-
         public void Dispose()
         {
             _context.Dispose();
+        }
+
+        private Task<bool> CreateContact(Contact contact)
+        {
+            return Task<bool>.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _context.Contacts.AddOrUpdate(contact);
+                    _context.SaveChanges();
+
+                    return true;
+                }
+                catch (Exception)
+                {
+                    //todo: can handle error here
+                    return false;
+                }
+            });
         }
     }
 }
