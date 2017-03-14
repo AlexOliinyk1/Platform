@@ -42,26 +42,42 @@ namespace Platform.Utilities.Parsers
             using (var package = new ExcelPackage())
             {
                 var workSheet = package.Workbook.Worksheets.Add("Contacts");
-                var noOfRow = workSheet.Dimension.End.Row;
-                for (int rowIterator = 2; rowIterator <= noOfRow; rowIterator++)
+                AddHeader(workSheet);
+                for (int rowIterator = 2; rowIterator <= model.Count+1; rowIterator++)
                 {
-                    workSheet.Cells[rowIterator, 1].Value = model[rowIterator - 2].Name;
-                    workSheet.Cells[rowIterator, 2].Value = model[rowIterator - 2].Email;
-                    workSheet.Cells[rowIterator, 3].Value = model[rowIterator - 2].PhoneNumber;
-                    workSheet.Cells[rowIterator, 4].Value = model[rowIterator - 2].ContactType;
-                    workSheet.Cells[rowIterator, 5].Value = model[rowIterator - 2].IsCompany;
-                    workSheet.Cells[rowIterator, 6].Value = model[rowIterator - 2].Title;
-                    workSheet.Cells[rowIterator, 7].Value = model[rowIterator - 2].CustomerType;
-                    workSheet.Cells[rowIterator, 8].Value = model[rowIterator - 2].Zip;
-                    workSheet.Cells[rowIterator, 9].Value = model[rowIterator - 2].Street;
-                    workSheet.Cells[rowIterator, 10].Value = model[rowIterator - 2].City;
-                    workSheet.Cells[rowIterator, 11].Value = model[rowIterator - 2].Country;
-                    workSheet.Cells[rowIterator, 12].Value = model[rowIterator - 2].VatNumber;
+                    workSheet.Cells[rowIterator, 1].Value = model[rowIterator - 2].Name ?? "";
+                    workSheet.Cells[rowIterator, 2].Value = model[rowIterator - 2].Email ?? "";
+                    workSheet.Cells[rowIterator, 3].Value = model[rowIterator - 2].PhoneNumber ?? "";
+                    workSheet.Cells[rowIterator, 4].Value = model[rowIterator - 2].ContactType ?? "";
+                    workSheet.Cells[rowIterator, 5].Value = model[rowIterator - 2].IsCompany.ToString();
+                    workSheet.Cells[rowIterator, 6].Value = model[rowIterator - 2].Title ?? "";
+                    workSheet.Cells[rowIterator, 7].Value = model[rowIterator - 2].CustomerType ?? "";
+                    workSheet.Cells[rowIterator, 8].Value = model[rowIterator - 2].Zip ?? "";
+                    workSheet.Cells[rowIterator, 9].Value = model[rowIterator - 2].Street ?? "";
+                    workSheet.Cells[rowIterator, 10].Value = model[rowIterator - 2].City ?? "";
+                    workSheet.Cells[rowIterator, 11].Value = model[rowIterator - 2].Country ?? "";
+                    workSheet.Cells[rowIterator, 12].Value = model[rowIterator - 2].VatNumber ?? "";
                 }
                 package.Save();
                 var stream = new MemoryStream(package.GetAsByteArray());
                 return stream;
             }
+        }
+
+        private void AddHeader(ExcelWorksheet workSheet)
+        {
+            workSheet.Cells[1, 1].Value = "Name";
+            workSheet.Cells[1, 2].Value = "Email";
+            workSheet.Cells[1, 3].Value = "PhoneNumber";
+            workSheet.Cells[1, 4].Value = "ContactType";
+            workSheet.Cells[1, 5].Value = "IsCompany";
+            workSheet.Cells[1, 6].Value = "Title";
+            workSheet.Cells[1, 7].Value = "CustomerType";
+            workSheet.Cells[1, 8].Value = "Zip";
+            workSheet.Cells[1, 9].Value = "Street";
+            workSheet.Cells[1, 10].Value = "City";
+            workSheet.Cells[1, 11].Value = "Country";
+            workSheet.Cells[1, 12].Value = "VatNumber";
         }
     }
 }

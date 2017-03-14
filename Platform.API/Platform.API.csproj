@@ -172,6 +172,10 @@
       <Project>{17a9f28a-c83f-4c84-8232-2d13dcbdb771}</Project>
       <Name>Platform.DataAccess.Auth</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Platform.Utilities\Platform.Utilities.csproj">
+      <Project>{A2D1FFEE-3F45-4BD0-AEB0-F72CF9DA2C01}</Project>
+      <Name>Platform.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

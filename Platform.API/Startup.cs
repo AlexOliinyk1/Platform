@@ -9,8 +9,11 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Platform.API;
 using Platform.API.Providers;
+using Platform.Core.Models.Contacts;
 using Platform.Core.Services;
+using Platform.Core.Utilities;
 using Platform.DataAccess.Repositories;
+using Platform.Utilities.Parsers;
 
 [assembly: OwinStartup(typeof(Startup))]
 namespace Platform.API
@@ -46,6 +49,7 @@ namespace Platform.API
             var builder = new ContainerBuilder();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<AuthService>().As<IAuthService>();
+            builder.RegisterType<ContactParser>().As<IExcelParser<ContactModel>>();
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
