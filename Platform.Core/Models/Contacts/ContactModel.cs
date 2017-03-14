@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 
 namespace Platform.Core.Models.Contacts
 {
-    class ContactModel
+    public class ContactModel
     {
         [Required]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
+        [Display(Name = "Name")]
+        public string Name { get; set; }
 
         [Required]
         [Display(Name = "Title")]
@@ -27,7 +23,7 @@ namespace Platform.Core.Models.Contacts
 
         [Required]
         [Display(Name = "Type")]
-        public ContactTypes ContatctType { get; set; }
+        public string ContactType { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -36,11 +32,15 @@ namespace Platform.Core.Models.Contacts
 
         [Required]
         [Display(Name = "Vat Number")]
-        public int VatNumber { get; set; }
+        public string VatNumber { get; set; }
 
         [Required]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
-
+        public string CustomerType { get; set; }
+        public string Zip { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
     }
 }
