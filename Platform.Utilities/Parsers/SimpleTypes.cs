@@ -32,5 +32,12 @@ namespace Platform.Utilities.Parsers
             int.TryParse(value, out buffer);
             return buffer != 0 ? string.Format("{0:(###) ###-####}", buffer) : "";
         }
+
+        public static bool parseBool(string value)
+        {
+            bool buffer;
+            bool.TryParse(value, out buffer);
+            return buffer;
+        }
     }
 }

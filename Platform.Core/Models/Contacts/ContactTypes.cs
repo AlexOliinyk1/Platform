@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Platform.Core.Models.Contacts
 {
-    enum ContactTypes
+    public enum ContactTypes
     {
         Customer,
         Supplier,
