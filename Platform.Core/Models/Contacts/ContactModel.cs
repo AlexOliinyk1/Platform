@@ -17,24 +17,19 @@ namespace Platform.Core.Models.Contacts
         [Display(Name = "Title")]
         public string Title { get; set; }
 
-        [Required]
         [Display(Name = "Company")]
         public bool IsCompany { get; set; }
 
-        [Required]
         [Display(Name = "Type")]
         public string ContactType { get; set; }
 
-        [Required]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
         [Display(Name = "Vat Number")]
         public string VatNumber { get; set; }
 
-        [Required]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
         public string CustomerType { get; set; }
