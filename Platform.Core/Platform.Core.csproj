@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Auth\UserModel.cs" />
+    <Compile Include="Models\Contacts\ContactModel.cs" />
+    <Compile Include="Models\Contacts\ContactTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IAuthService.cs" />
   </ItemGroup>
