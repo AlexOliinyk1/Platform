@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Auth\UserModel.cs" />
+    <Compile Include="Models\Contacts\ContactListModel.cs" />
     <Compile Include="Models\Contacts\ContactModel.cs" />
     <Compile Include="Models\Contacts\ContactTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IAuthService.cs" />
+    <Compile Include="Services\IContactService.cs" />
     <Compile Include="Utilities\IExcelParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
