@@ -15,5 +15,7 @@
         public int VatNumber { get; set; }
         
         public string PhoneNumber { get; set; }
+
+        public Address Address { get; set; }
     }
 }
