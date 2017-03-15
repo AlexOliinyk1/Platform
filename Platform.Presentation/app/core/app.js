@@ -17,12 +17,12 @@ var App = angular.module('app', [
 // Router configuration
 App.config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/angularjs');
+        $urlRouterProvider.otherwise('/contacts');
         $stateProvider
-            .state('angularjs', {
-                url: '/angularjs',
+            .state('contacts', {
+                url: '/contacts',
                 controller: 'ContactsCtrl',
-                templateUrl: 'assets/views/ready_angularjs.html',
+                templateUrl: 'assets/views/contacts.html',
                 resolve: {
                     deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
