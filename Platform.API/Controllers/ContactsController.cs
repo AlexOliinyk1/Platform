@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -9,7 +10,9 @@ using Platform.Core.Utilities;
 using Platform.Core.Services;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http.ModelBinding;
+using System.Web.Http.Results;
 
 namespace Platform.API.Controllers
 {
@@ -32,7 +35,7 @@ namespace Platform.API.Controllers
         [HttpGet]
         public IEnumerable<ContactListModel> Get(ContactsPagingModel page)
         {
-            return  new List<ContactListModel> {
+            return new List<ContactListModel> {
                 new ContactListModel { Name = "John Doe", Address = "Some street", ZipCode="0000" },
                 new ContactListModel { Name = "John Doe1", Address = "Some street", ZipCode="0000" },
                 new ContactListModel { Name = "John Doe2", Address = "Some street", ZipCode="0000" },
@@ -52,7 +55,7 @@ namespace Platform.API.Controllers
         [Route("SaveContact")]
         public async Task<IHttpActionResult> SaveContact(ContactModel contact)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 //Todo: Make base api controller with method to handle validation error
                 return BadRequest("Invalid model");
@@ -60,7 +63,7 @@ namespace Platform.API.Controllers
 
             var result = await _contactService.CreateContact(contact);
 
-            if(!result)
+            if (!result)
             {
                 return this.BadRequest();
             }
@@ -72,7 +75,7 @@ namespace Platform.API.Controllers
         [Route("SaveFastContact")]
         public async Task<IHttpActionResult> SaveFastContact(FastContactModel contact)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 //Todo: Make base api controller with method to handle validation error
                 return BadRequest("Invalid model");
@@ -80,14 +83,14 @@ namespace Platform.API.Controllers
 
             var result = await _contactService.CreateContact(contact);
 
-            if(!result)
+            if (!result)
             {
                 return this.BadRequest();
             }
 
             return Ok();
         }
-        
+
         [HttpGet]
         [Route("GetContactsDocument")]
         public HttpResponseMessage GetContactsDocument()
@@ -106,6 +109,20 @@ namespace Platform.API.Controllers
             response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("fileName");
             response.Content.Headers.ContentDisposition.FileName = "Contacts.xlsx";
             return response;
+        }
+
+        [HttpPost]
+        [Route("SetContactsFromDocument")]
+        public IHttpActionResult SetContactsFromDocument(HttpPostedFile postedFile)
+        {
+            HttpPostedFile file = postedFile;//Request?.Files["UploadedFile"];
+            IEnumerable<ContactModel> model = null;
+            if (file != null && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+            {
+                model = _excelParser.ParseFromStream(file.InputStream);
+                //TODO save to db
+            }
+            return Ok();
         }
     }
 }
