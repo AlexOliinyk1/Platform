@@ -7,9 +7,10 @@ namespace Platform.Core.Services
 {
     public interface IContactService : IDisposable
     {
-        Task<List<ContactListModel>> GetAllContacts();
-        Task<List<ContactListModel>> GetContacts(ContactsPagingModel page);
+        Task<IEnumerable<ContactListModel>> GetAllContacts();
+        Task<IEnumerable<ContactListModel>> GetContacts(ContactsPagingModel page);
         Task<bool> CreateContact(ContactModel contact);
         Task<bool> CreateContact(FastContactModel contact);
+        Task<bool> CreateContacts(IEnumerable<ContactModel> contacts);
     }
 }

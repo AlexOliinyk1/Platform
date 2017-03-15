@@ -208,7 +208,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
 
                 console.log(result);
             });
-        }
+        };
 
         //Apply table styles
         bsDataTables();
