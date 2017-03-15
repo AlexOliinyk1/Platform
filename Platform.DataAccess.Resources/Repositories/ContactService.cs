@@ -15,7 +15,7 @@ namespace Platform.DataAccess.Resources.Repositories
         private readonly ResourcesContext _context;
 
         /// <summary>
-        /// Ctor.
+        ///     Ctor.
         /// </summary>
         public ContactService()
         {
@@ -67,7 +67,7 @@ namespace Platform.DataAccess.Resources.Repositories
         /// Gets all contacts.
         /// </summary>
         /// <returns></returns>
-        public Task<IEnumerable<ContactListModel>> GetAllContacts()
+        public Task<List<ContactListModel>> GetAllContacts()
         {
             return ToContactList(_context.Contacts.AsQueryable()).ToListAsync();
         }
@@ -77,7 +77,7 @@ namespace Platform.DataAccess.Resources.Repositories
         /// </summary>
         /// <param name="page">The page.</param>
         /// <returns></returns>
-        public Task<IEnumerable<ContactListModel>> GetContacts(ContactsPagingModel page)
+        public Task<List<ContactListModel>> GetContacts(ContactsPagingModel page)
         {
             int skip = page.CurrentPage * page.ByPage;
 

@@ -16,14 +16,13 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         $scope.contact.Country = '';
 
         function SaveContact(model) {
-            
-            
+
+
         }
 
         $scope.SendExcel = SendExcel;
 
         function SendExcel(file) {
-            debugger;
             contactService.uploadExcel(file);
         }
 
@@ -31,8 +30,8 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         var initDataTableFull = function () {
             jQuery('.js-dataTable-full').dataTable({
                 columnDefs: [{ orderable: false, targets: [2] }],
-                columns:[
-                    { data: 'name', title:'Name' },
+                columns: [
+                    { data: 'name', title: 'Name' },
                     { data: 'address', title: 'Address' },
                     { data: 'zipCode', title: 'Zip Code' }
                 ],
@@ -198,8 +197,15 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
             }
         };
 
+        $scope.pageModel = {
+            byPage: 10,
+            page: 0,
+            searchWord: '',
+            contactType: ''
+        };
+
         var loadContacts = function () {
-            contactService.loadContacts(1, 1, 10).then(function (result) {
+            contactService.loadContacts($scope.pageModel.page, $scope.pageModel., 10).then(function (result) {
                 var datatable = jQuery('.js-dataTable-full').dataTable().api();
 
                 datatable.clear();

@@ -11,8 +11,8 @@ namespace Platform.Core.Services
     /// <seealso cref="System.IDisposable" />
     public interface IContactService : IDisposable
     {
-        Task<IEnumerable<ContactListModel>> GetAllContacts();
-        Task<IEnumerable<ContactListModel>> GetContacts(ContactsPagingModel page);
+        Task<List<ContactListModel>> GetAllContacts();
+        Task<List<ContactListModel>> GetContacts(ContactsPagingModel page);
         Task<bool> CreateContact(ContactModel contact);
         Task<bool> CreateContact(FastContactModel contact);
         Task<bool> CreateContacts(IEnumerable<ContactModel> contacts);
