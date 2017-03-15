@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace Platform.Core.Services
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.IDisposable" />
     public interface IContactService : IDisposable
     {
         Task<List<ContactListModel>> GetAllContacts();

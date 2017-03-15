@@ -2,6 +2,9 @@
 
 namespace Platform.DataAccess.Resources.Entities
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Contact
     {
         [Key]

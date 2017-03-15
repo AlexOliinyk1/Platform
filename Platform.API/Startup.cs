@@ -21,6 +21,10 @@ namespace Platform.API
 {
     public class Startup
     {
+        /// <summary>
+        /// Configurations the specified application.
+        /// </summary>
+        /// <param name="app">The application.</param>
         public void Configuration(IAppBuilder app)
         {
             ConfigureOAuth(app);
@@ -31,6 +35,10 @@ namespace Platform.API
             app.UseWebApi(config);
         }
 
+        /// <summary>
+        /// Configures the o authentication.
+        /// </summary>
+        /// <param name="app">The application.</param>
         private void ConfigureOAuth(IAppBuilder app)
         {
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
@@ -45,6 +53,11 @@ namespace Platform.API
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
         }
 
+        /// <summary>
+        /// Registers the dependencies.
+        /// </summary>
+        /// <param name="app">The application.</param>
+        /// <param name="config">The configuration.</param>
         private void RegisterDependencies(IAppBuilder app, HttpConfiguration config)
         {
             var builder = new ContainerBuilder();
