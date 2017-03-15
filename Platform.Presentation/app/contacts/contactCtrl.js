@@ -1,7 +1,8 @@
 ﻿
-App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactService',
+App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactService', 'ngAutocomplete',
     function ($scope, $localStorage, $window, contactService) {
-    
+
+        $scope.address = '';
 
         // Init full DataTable, for more examples you can check out https://www.datatables.net/
         var initDataTableFull = function () {

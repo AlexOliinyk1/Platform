@@ -22,7 +22,21 @@
         </div>
     </div>
 </div>
-
+<div class="row">
+    <div class="col-sm-6 col-lg-3">
+        <!-- Normal Modal -->
+        <div class="block">
+            <div class="block-header">
+                <h3 class="block-title">Normal</h3>
+            </div>
+            <div class="block-content block-content-full">
+                <button class="btn btn-info" data-toggle="modal" data-target="#modal-normal" type="button">Launch Modal</button>
+            </div>
+        </div>
+        <!-- END Normal Modal -->
+    </div>
+   
+</div>
 <!-- Page Content -->
 <div class="content">
 
@@ -71,4 +85,96 @@
 
 </div>            
 
- 
+             
+<div class="modal ng-scope" id="modal-normal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent remove-margin-b">
+                <div class="block-header bg-primary-dark">
+                    <ul class="block-options">
+                        <li>
+                            <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Contacts</h3>
+                </div>
+                <div class="block-content">
+                    <form class="js-validation-bootstrap form-horizontal ng-pristine ng-valid" action="index.html" method="post" novalidate="novalidate">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-skill">Type of contact<span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="val-skill" name="val-skill">
+                                    <option value="">Please select</option>
+                                    <option value="html">Customer</option>
+                                    <option value="css">Supplier</option>
+                                    <option value="javascript">Employee</option>
+                                    <option value="ruby">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Company <span class="text-danger">*</span></label>
+                            <div class="col-md-8">
+                                <label class="css-input css-checkbox css-checkbox-primary" for="val-company">
+                                    <input type="checkbox" id="val-company" name="val-company" value="1"><span></span> 
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-title">Title <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-title" name="val-title">
+                            </div>
+                        </div> 
+                        <div class="form-group has-error">
+                            <label class="col-md-4 control-label" for="val-username">Name <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control valid" type="text" id="val-username" name="val-username" placeholder="Type name..." aria-required="true" aria-describedby="val-username-error" aria-invalid="true">
+                                <div id="val-username-error" class="help-block animated fadeInDown">Please enter a name</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-address-search">Input address <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-address-search" name="val-address-search"  ng-autocomplete ng-model="address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-address-search">  </label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-address" name="val-address" disabled="disabled" ng-value="address">
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-email">Email <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-email" name="val-email" placeholder="Enter your valid email..">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-phoneus">Phone number <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-vat">VAT number<span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-vat" name="val-vat" placeholder="212-999-0000">
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>
+                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal"><i class="fa fa-check"></i> Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
