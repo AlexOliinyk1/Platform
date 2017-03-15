@@ -24,8 +24,7 @@ namespace Platform.DataAccess.Resources.Repositories
 
         public Task<bool> CreateContact(ContactModel contact)
         {
-            Contact newContact = new Contact
-            {
+            Contact newContact = new Contact {
                 Name = contact.Name,
                 ContatctType = contact.ContactType,
                 IsCompany = contact.IsCompany,
@@ -33,8 +32,7 @@ namespace Platform.DataAccess.Resources.Repositories
                 VatNumber = contact.VatNumber,
                 PhoneNumber = contact.PhoneNumber,
                 Title = contact.Title,
-                Address = new Address
-                {
+                Address = new Address {
                     AddressLine = contact.Street,
                     City = contact.City,
                     Country = contact.Country,
@@ -47,8 +45,7 @@ namespace Platform.DataAccess.Resources.Repositories
 
         public Task<bool> CreateContact(FastContactModel contact)
         {
-            Contact newContact = new Contact
-            {
+            Contact newContact = new Contact {
                 Name = contact.Name,
                 PhoneNumber = contact.PhoneNumber
             };
@@ -58,16 +55,23 @@ namespace Platform.DataAccess.Resources.Repositories
 
         public Task<List<ContactListModel>> GetAllContacts()
         {
-            return _context.Contacts
-                .Include(x => x.Address)
-                .Select(x => new ContactListModel
-                {
-                    Name = x.Name,
-                    ZipCode = x.Address.Zip,
-                    Address = x.Address.AddressLine
-                })
-                .ToListAsync();
+            return ToContactList(_context.Contacts.AsQueryable()).ToListAsync();
+        }
 
+        public Task<List<ContactListModel>> GetContacts(ContactsPagingModel page)
+        {
+            int skip = page.CurrentPage * page.ByPage;
+
+            var pagedQuery = _context.Contacts
+                .Where(x =>
+                    x.Name.Contains(page.SearchWord)
+                    || x.Address.AddressLine.Contains(page.SearchWord)
+                    || x.Address.Zip.Contains(page.SearchWord)
+                )
+                .Skip(skip)
+                .Take(page.ByPage);
+
+            return ToContactList(pagedQuery).ToListAsync();
         }
 
         public void Dispose()
@@ -77,8 +81,7 @@ namespace Platform.DataAccess.Resources.Repositories
 
         private Task<bool> CreateContact(Contact contact)
         {
-            return Task<bool>.Factory.StartNew(() =>
-            {
+            return Task<bool>.Factory.StartNew(() => {
                 try
                 {
                     _context.Contacts.AddOrUpdate(contact);
@@ -86,12 +89,23 @@ namespace Platform.DataAccess.Resources.Repositories
 
                     return true;
                 }
-                catch (Exception)
+                catch(Exception)
                 {
                     //todo: can handle error here
                     return false;
                 }
             });
+        }
+
+        private IQueryable<ContactListModel> ToContactList(IQueryable<Contact> query)
+        {
+            return query
+                .Include(x => x.Address)
+                .Select(x => new ContactListModel {
+                    Name = x.Name,
+                    ZipCode = x.Address.Zip,
+                    Address = x.Address.AddressLine
+                });
         }
     }
 }
