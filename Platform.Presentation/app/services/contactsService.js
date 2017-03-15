@@ -19,7 +19,20 @@ App.factory('contactService', ['$http', '$location', function ($http, $location)
         });
     }
 
+    var uploadExcel = function (excelDocument) {
+        debugger;
+        return $http({
+            method: 'post',
+            url: baseUrl + '/api/Contacts/SetContactsFromDocument',
+            data: { excelDocument },
+            headers: { 'Content-Type': excelDocument.type }
+        }).then(function (result) {
+            return result.data;
+        });
+    }
+
     return {
-        loadContacts: loadContacts
+        loadContacts: loadContacts,
+        uploadExcel: uploadExcel
     };
 }]);
