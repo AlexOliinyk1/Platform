@@ -1,27 +1,1232 @@
+<div class="content bg-white border-b ng-scope">
+    <div class="row items-push text-uppercase">
+        <div class="col-xs-6 col-sm-3">
+            <div class="font-w700 text-gray-darker animated fadeIn">Product Sales</div>
+            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> Today</small></div>
+            <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)">300</a>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="font-w700 text-gray-darker animated fadeIn">Product Sales</div>
+            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> This Month</small></div>
+            <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)">8,790</a>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="font-w700 text-gray-darker animated fadeIn">Total Earnings</div>
+            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
+            <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)">$ 93,880</a>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+            <div class="font-w700 text-gray-darker animated fadeIn">Average Sale</div>
+            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
+            <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)">$ 270</a>
+        </div>
+    </div>
+</div>
 <!-- Page Content -->
 <div class="content text-center">
     <div class="row">
         <div class="col-md-6 col-md-offset-3 animated fadeIn">
-            <img class="push-50-t" src="assets/img/various/angularjs_logo.png" srcset="assets/img/various/angularjs_logo@2x.png 2x" alt="AngularJS Logo">
-            <div class="h1 font-w300 text-black push-30-t push-50">OneUI’s AngularJS version is here!</div>
+            <div class="block">
+                <ul class="nav nav-tabs" data-js-tabs="">
+                    <li class="active">
+                        <a href="#btabswo-static-all">All</a>
+                    </li>
+                    <li>
+                        <a href="#btabswo-static-customer">Customer</a>
+                    </li>
+                    <li>
+                        <a href="#btabswo-static-supplier">Supplier</a>
+                    </li>
+                    <li>
+                        <a href="#btabswo-static-employee">Employee</a>
+                    </li>
+                    <li>
+                        <a href="#btabswo-static-other">Other</a>
+                    </li>
+                    <li class="pull-right">
+                        <ul class="block-options push-10-t push-10-r">
+                            <li>
+                                <button type="button" data-js-block-option="" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                            </li>
+                            <li>
+                                <button type="button" data-js-block-option="" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                            </li>
+                            <li>
+                                <button type="button" data-js-block-option="" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                            </li>
+                            <li>
+                                <button type="button" data-js-block-option="" data-action="close"><i class="si si-close"></i></button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="block-content tab-content">
+                    <div class="tab-pane active" id="btabswo-static-all">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">Dynamic Table <small>all</small></h3>
+                            </div>
+                            <div class="block-content">
+                                <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/controllers.js -> TablesDatatablesCtrl Controller-->
+                                <div id="DataTables_Table_all_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                    <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="DataTables_Table_all_length"><label><select name="DataTables_Table_all_length" aria-controls="DataTables_Table_all" class="form-control"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select></label></div></div><div class="col-sm-6"><div id="DataTables_Table_all_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control" placeholder="" aria-controls="DataTables_Table_all"></label></div></div></div><div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table table-bordered table-striped js-dataTable-full dataTable no-footer" id="DataTables_Table_all" role="grid" aria-describedby="DataTables_Table_all_info">
+                                                <thead>
+                                                    <tr role="row"><th class="text-center sorting_asc" tabindex="0" aria-controls="DataTables_Table_all" rowspan="1" colspan="1" aria-sort="ascending" aria-label=": activate to sort column descending" style="width: 97px;"></th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_all" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 391px;">Name</th><th class="hidden-xs sorting" tabindex="0" aria-controls="DataTables_Table_all" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 572px;">Email</th><th class="hidden-xs sorting" style="width: 195px;" tabindex="0" aria-controls="DataTables_Table_all" rowspan="1" colspan="1" aria-label="Access: activate to sort column ascending">Access</th><th class="text-center sorting_disabled" style="width: 117px;" rowspan="1" colspan="1" aria-label="Actions">Actions</th></tr>
+                                                </thead>
+                                                <tbody>
+                                                 <tr role="row" class="odd">
+                                                    <td class="text-center sorting_1">1</td>
+                                                    <td class="font-w600">Ashley Welch</td>
+                                                    <td class="hidden-xs">client1@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-danger">Disabled</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td class="text-center sorting_1">2</td>
+                                                    <td class="font-w600">Laura Bell</td>
+                                                    <td class="hidden-xs">client2@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-primary">Personal</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td class="text-center sorting_1">3</td>
+                                                    <td class="font-w600">Bruce Edwards</td>
+                                                    <td class="hidden-xs">client3@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-success">VIP</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td class="text-center sorting_1">4</td>
+                                                    <td class="font-w600">Julia Cole</td>
+                                                    <td class="hidden-xs">client4@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-success">VIP</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td class="text-center sorting_1">5</td>
+                                                    <td class="font-w600">Laura Bell</td>
+                                                    <td class="hidden-xs">client5@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-primary">Personal</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td class="text-center sorting_1">6</td>
+                                                    <td class="font-w600">John Parker</td>
+                                                    <td class="hidden-xs">client6@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-info">Business</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td class="text-center sorting_1">7</td>
+                                                    <td class="font-w600">Lisa Gordon</td>
+                                                    <td class="hidden-xs">client7@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-success">VIP</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td class="text-center sorting_1">8</td>
+                                                    <td class="font-w600">Scott Ruiz</td>
+                                                    <td class="hidden-xs">client8@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-success">VIP</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td class="text-center sorting_1">9</td>
+                                                    <td class="font-w600">Dennis Ross</td>
+                                                    <td class="hidden-xs">client9@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-primary">Personal</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td class="text-center sorting_1">10</td>
+                                                    <td class="font-w600">Roger Hart</td>
+                                                    <td class="hidden-xs">client10@example.com</td>
+                                                    <td class="hidden-xs">
+                                                        <span class="label label-danger">Disabled</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                            <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="DataTables_Table_all_info" role="status" aria-live="polite">Showing <strong>1</strong>-<strong>10</strong> of <strong>40</strong></div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_all_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="DataTables_Table_all" tabindex="0" id="DataTables_Table_all_previous"><a href="#"><i class="fa fa-angle-left"></i></a></li><li class="paginate_button active" aria-controls="DataTables_Table_all" tabindex="0"><a href="#">1</a></li><li class="paginate_button " aria-controls="DataTables_Table_all" tabindex="0"><a href="#">2</a></li><li class="paginate_button " aria-controls="DataTables_Table_all" tabindex="0"><a href="#">3</a></li><li class="paginate_button " aria-controls="DataTables_Table_all" tabindex="0"><a href="#">4</a></li><li class="paginate_button next" aria-controls="DataTables_Table_all" tabindex="0" id="DataTables_Table_all_next"><a href="#"><i class="fa fa-angle-right"></i></a></li></ul></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="btabswo-static-customer">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">Dynamic Table <small>Customer</small></h3>
+                            </div>
+                            <div class="block-content">
+                                <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/controllers.js -> TablesDatatablesCtrl Controller-->
+                                <div id="DataTables_Table_customer_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                    <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="DataTables_Table_customer_length"><label><select name="DataTables_Table_customer_length" aria-controls="DataTables_Table_customer" class="form-control"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select></label></div></div><div class="col-sm-6"><div id="DataTables_Table_customer_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control" placeholder="" aria-controls="DataTables_Table_customer"></label></div></div></div><div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table table-bordered table-striped js-dataTable-full dataTable no-footer" id="DataTables_Table_customer" role="grid" aria-describedby="DataTables_Table_customer_info">
+                                                <thead>
+                                                    <tr role="row"><th class="text-center sorting_asc" tabindex="0" aria-controls="DataTables_Table_customer" rowspan="1" colspan="1" aria-sort="ascending" aria-label=": activate to sort column descending" style="width: 97px;"></th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_customer" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 391px;">Name</th><th class="hidden-xs sorting" tabindex="0" aria-controls="DataTables_Table_customer" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 572px;">Email</th><th class="hidden-xs sorting" style="width: 195px;" tabindex="0" aria-controls="DataTables_Table_customer" rowspan="1" colspan="1" aria-label="Access: activate to sort column ascending">Access</th><th class="text-center sorting_disabled" style="width: 117px;" rowspan="1" colspan="1" aria-label="Actions">Actions</th></tr>
+                                                </thead>
+                                                <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">1</td>
+                                                        <td class="font-w600">Ashley Welch</td>
+                                                        <td class="hidden-xs">client1@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-danger">Disabled</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">2</td>
+                                                        <td class="font-w600">Laura Bell</td>
+                                                        <td class="hidden-xs">client2@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">3</td>
+                                                        <td class="font-w600">Bruce Edwards</td>
+                                                        <td class="hidden-xs">client3@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">4</td>
+                                                        <td class="font-w600">Julia Cole</td>
+                                                        <td class="hidden-xs">client4@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">5</td>
+                                                        <td class="font-w600">Laura Bell</td>
+                                                        <td class="hidden-xs">client5@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">6</td>
+                                                        <td class="font-w600">John Parker</td>
+                                                        <td class="hidden-xs">client6@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-info">Business</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">7</td>
+                                                        <td class="font-w600">Lisa Gordon</td>
+                                                        <td class="hidden-xs">client7@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">8</td>
+                                                        <td class="font-w600">Scott Ruiz</td>
+                                                        <td class="hidden-xs">client8@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">9</td>
+                                                        <td class="font-w600">Dennis Ross</td>
+                                                        <td class="hidden-xs">client9@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">10</td>
+                                                        <td class="font-w600">Roger Hart</td>
+                                                        <td class="hidden-xs">client10@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-danger">Disabled</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="DataTables_Table_customer_info" role="status" aria-live="polite">Showing <strong>1</strong>-<strong>10</strong> of <strong>40</strong></div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_customer_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="DataTables_Table_customer" tabindex="0" id="DataTables_Table_customer_previous"><a href="#"><i class="fa fa-angle-left"></i></a></li><li class="paginate_button active" aria-controls="DataTables_Table_customer" tabindex="0"><a href="#">1</a></li><li class="paginate_button " aria-controls="DataTables_Table_customer" tabindex="0"><a href="#">2</a></li><li class="paginate_button " aria-controls="DataTables_Table_customer" tabindex="0"><a href="#">3</a></li><li class="paginate_button " aria-controls="DataTables_Table_customer" tabindex="0"><a href="#">4</a></li><li class="paginate_button next" aria-controls="DataTables_Table_customer" tabindex="0" id="DataTables_Table_customer_next"><a href="#"><i class="fa fa-angle-right"></i></a></li></ul></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="btabswo-static-supplier">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">Dynamic Table <small>supplier</small></h3>
+                            </div>
+                            <div class="block-content">
+                                <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/controllers.js -> TablesDatatablesCtrl Controller-->
+                                <div id="DataTables_Table_supplier_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                    <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="DataTables_Table_supplier_length"><label><select name="DataTables_Table_supplier_length" aria-controls="DataTables_Table_supplier" class="form-control"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select></label></div></div><div class="col-sm-6"><div id="DataTables_Table_supplier_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control" placeholder="" aria-controls="DataTables_Table_supplier"></label></div></div></div><div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table table-bordered table-striped js-dataTable-full dataTable no-footer" id="DataTables_Table_supplier" role="grid" aria-describedby="DataTables_Table_supplier_info">
+                                                <thead>
+                                                    <tr role="row"><th class="text-center sorting_asc" tabindex="0" aria-controls="DataTables_Table_supplier" rowspan="1" colspan="1" aria-sort="ascending" aria-label=": activate to sort column descending" style="width: 97px;"></th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_supplier" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 391px;">Name</th><th class="hidden-xs sorting" tabindex="0" aria-controls="DataTables_Table_supplier" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 572px;">Email</th><th class="hidden-xs sorting" style="width: 195px;" tabindex="0" aria-controls="DataTables_Table_supplier" rowspan="1" colspan="1" aria-label="Access: activate to sort column ascending">Access</th><th class="text-center sorting_disabled" style="width: 117px;" rowspan="1" colspan="1" aria-label="Actions">Actions</th></tr>
+                                                </thead>
+                                                <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">1</td>
+                                                        <td class="font-w600">Ashley Welch</td>
+                                                        <td class="hidden-xs">client1@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-danger">Disabled</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">2</td>
+                                                        <td class="font-w600">Laura Bell</td>
+                                                        <td class="hidden-xs">client2@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">3</td>
+                                                        <td class="font-w600">Bruce Edwards</td>
+                                                        <td class="hidden-xs">client3@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">4</td>
+                                                        <td class="font-w600">Julia Cole</td>
+                                                        <td class="hidden-xs">client4@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">5</td>
+                                                        <td class="font-w600">Laura Bell</td>
+                                                        <td class="hidden-xs">client5@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">6</td>
+                                                        <td class="font-w600">John Parker</td>
+                                                        <td class="hidden-xs">client6@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-info">Business</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">7</td>
+                                                        <td class="font-w600">Lisa Gordon</td>
+                                                        <td class="hidden-xs">client7@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">8</td>
+                                                        <td class="font-w600">Scott Ruiz</td>
+                                                        <td class="hidden-xs">client8@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">9</td>
+                                                        <td class="font-w600">Dennis Ross</td>
+                                                        <td class="hidden-xs">client9@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">10</td>
+                                                        <td class="font-w600">Roger Hart</td>
+                                                        <td class="hidden-xs">client10@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-danger">Disabled</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="DataTables_Table_supplier_info" role="status" aria-live="polite">Showing <strong>1</strong>-<strong>10</strong> of <strong>40</strong></div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_supplier_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="DataTables_Table_supplier" tabindex="0" id="DataTables_Table_supplier_previous"><a href="#"><i class="fa fa-angle-left"></i></a></li><li class="paginate_button active" aria-controls="DataTables_Table_supplier" tabindex="0"><a href="#">1</a></li><li class="paginate_button " aria-controls="DataTables_Table_supplier" tabindex="0"><a href="#">2</a></li><li class="paginate_button " aria-controls="DataTables_Table_supplier" tabindex="0"><a href="#">3</a></li><li class="paginate_button " aria-controls="DataTables_Table_supplier" tabindex="0"><a href="#">4</a></li><li class="paginate_button next" aria-controls="DataTables_Table_supplier" tabindex="0" id="DataTables_Table_supplier_next"><a href="#"><i class="fa fa-angle-right"></i></a></li></ul></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="btabswo-static-employee">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">Dynamic Table <small>employee</small></h3>
+                            </div>
+                            <div class="block-content">
+                                <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/controllers.js -> TablesDatatablesCtrl Controller-->
+                                <div id="DataTables_Table_employee_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                    <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="DataTables_Table_employee_length"><label><select name="DataTables_Table_employee_length" aria-controls="DataTables_Table_employee" class="form-control"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select></label></div></div><div class="col-sm-6"><div id="DataTables_Table_employee_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control" placeholder="" aria-controls="DataTables_Table_employee"></label></div></div></div><div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table table-bordered table-striped js-dataTable-full dataTable no-footer" id="DataTables_Table_employee" role="grid" aria-describedby="DataTables_Table_employee_info">
+                                                <thead>
+                                                    <tr role="row"><th class="text-center sorting_asc" tabindex="0" aria-controls="DataTables_Table_employee" rowspan="1" colspan="1" aria-sort="ascending" aria-label=": activate to sort column descending" style="width: 97px;"></th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_employee" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 391px;">Name</th><th class="hidden-xs sorting" tabindex="0" aria-controls="DataTables_Table_employee" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 572px;">Email</th><th class="hidden-xs sorting" style="width: 195px;" tabindex="0" aria-controls="DataTables_Table_employee" rowspan="1" colspan="1" aria-label="Access: activate to sort column ascending">Access</th><th class="text-center sorting_disabled" style="width: 117px;" rowspan="1" colspan="1" aria-label="Actions">Actions</th></tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">1</td>
+                                                        <td class="font-w600">Ashley Welch</td>
+                                                        <td class="hidden-xs">client1@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-danger">Disabled</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">2</td>
+                                                        <td class="font-w600">Laura Bell</td>
+                                                        <td class="hidden-xs">client2@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">3</td>
+                                                        <td class="font-w600">Bruce Edwards</td>
+                                                        <td class="hidden-xs">client3@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">4</td>
+                                                        <td class="font-w600">Julia Cole</td>
+                                                        <td class="hidden-xs">client4@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">5</td>
+                                                        <td class="font-w600">Laura Bell</td>
+                                                        <td class="hidden-xs">client5@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">6</td>
+                                                        <td class="font-w600">John Parker</td>
+                                                        <td class="hidden-xs">client6@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-info">Business</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">7</td>
+                                                        <td class="font-w600">Lisa Gordon</td>
+                                                        <td class="hidden-xs">client7@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">8</td>
+                                                        <td class="font-w600">Scott Ruiz</td>
+                                                        <td class="hidden-xs">client8@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">9</td>
+                                                        <td class="font-w600">Dennis Ross</td>
+                                                        <td class="hidden-xs">client9@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">10</td>
+                                                        <td class="font-w600">Roger Hart</td>
+                                                        <td class="hidden-xs">client10@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-danger">Disabled</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="DataTables_Table_employee_info" role="status" aria-live="polite">Showing <strong>1</strong>-<strong>10</strong> of <strong>40</strong></div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_employee_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="DataTables_Table_employee" tabindex="0" id="DataTables_Table_employee_previous"><a href="#"><i class="fa fa-angle-left"></i></a></li><li class="paginate_button active" aria-controls="DataTables_Table_employee" tabindex="0"><a href="#">1</a></li><li class="paginate_button " aria-controls="DataTables_Table_employee" tabindex="0"><a href="#">2</a></li><li class="paginate_button " aria-controls="DataTables_Table_employee" tabindex="0"><a href="#">3</a></li><li class="paginate_button " aria-controls="DataTables_Table_employee" tabindex="0"><a href="#">4</a></li><li class="paginate_button next" aria-controls="DataTables_Table_employee" tabindex="0" id="DataTables_Table_employee_next"><a href="#"><i class="fa fa-angle-right"></i></a></li></ul></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="btabswo-static-other">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">Dynamic Table <small>other</small></h3>
+                            </div>
+                            <div class="block-content">
+                                <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/controllers.js -> TablesDatatablesCtrl Controller-->
+                                <div id="DataTables_Table_other_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                    <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="DataTables_Table_other_length"><label><select name="DataTables_Table_other_length" aria-controls="DataTables_Table_other" class="form-control"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select></label></div></div><div class="col-sm-6"><div id="DataTables_Table_other_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control" placeholder="" aria-controls="DataTables_Table_other"></label></div></div></div><div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table table-bordered table-striped js-dataTable-full dataTable no-footer" id="DataTables_Table_other" role="grid" aria-describedby="DataTables_Table_other_info">
+                                                <thead>
+                                                    <tr role="row"><th class="text-center sorting_asc" tabindex="0" aria-controls="DataTables_Table_other" rowspan="1" colspan="1" aria-sort="ascending" aria-label=": activate to sort column descending" style="width: 97px;"></th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_other" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 391px;">Name</th><th class="hidden-xs sorting" tabindex="0" aria-controls="DataTables_Table_other" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 572px;">Email</th><th class="hidden-xs sorting" style="width: 195px;" tabindex="0" aria-controls="DataTables_Table_other" rowspan="1" colspan="1" aria-label="Access: activate to sort column ascending">Access</th><th class="text-center sorting_disabled" style="width: 117px;" rowspan="1" colspan="1" aria-label="Actions">Actions</th></tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">1</td>
+                                                        <td class="font-w600">Ashley Welch</td>
+                                                        <td class="hidden-xs">client1@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-danger">Disabled</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">2</td>
+                                                        <td class="font-w600">Laura Bell</td>
+                                                        <td class="hidden-xs">client2@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">3</td>
+                                                        <td class="font-w600">Bruce Edwards</td>
+                                                        <td class="hidden-xs">client3@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">4</td>
+                                                        <td class="font-w600">Julia Cole</td>
+                                                        <td class="hidden-xs">client4@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">5</td>
+                                                        <td class="font-w600">Laura Bell</td>
+                                                        <td class="hidden-xs">client5@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">6</td>
+                                                        <td class="font-w600">John Parker</td>
+                                                        <td class="hidden-xs">client6@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-info">Business</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">7</td>
+                                                        <td class="font-w600">Lisa Gordon</td>
+                                                        <td class="hidden-xs">client7@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">8</td>
+                                                        <td class="font-w600">Scott Ruiz</td>
+                                                        <td class="hidden-xs">client8@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-success">VIP</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                                                        <td class="text-center sorting_1">9</td>
+                                                        <td class="font-w600">Dennis Ross</td>
+                                                        <td class="hidden-xs">client9@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-primary">Personal</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr role="row" class="even">
+                                                        <td class="text-center sorting_1">10</td>
+                                                        <td class="font-w600">Roger Hart</td>
+                                                        <td class="hidden-xs">client10@example.com</td>
+                                                        <td class="hidden-xs">
+                                                            <span class="label label-danger">Disabled</span>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="DataTables_Table_other_info" role="status" aria-live="polite">Showing <strong>1</strong>-<strong>10</strong> of <strong>40</strong></div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_other_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="DataTables_Table_other" tabindex="0" id="DataTables_Table_other_previous"><a href="#"><i class="fa fa-angle-left"></i></a></li><li class="paginate_button active" aria-controls="DataTables_Table_other" tabindex="0"><a href="#">1</a></li><li class="paginate_button " aria-controls="DataTables_Table_other" tabindex="0"><a href="#">2</a></li><li class="paginate_button " aria-controls="DataTables_Table_other" tabindex="0"><a href="#">3</a></li><li class="paginate_button " aria-controls="DataTables_Table_other" tabindex="0"><a href="#">4</a></li><li class="paginate_button next" aria-controls="DataTables_Table_other" tabindex="0" id="DataTables_Table_other_next"><a href="#"><i class="fa fa-angle-right"></i></a></li></ul></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="content bg-white">
-    <div class="row push-30-t push-30">
-        <div class="col-md-6 col-md-offset-3">
-            <p>This version uses the exact same CSS files the HTML/PHP versions are using, so any markup from the example pages of those versions can be used in this one. All ready pages which are not presented here will look great, so no worries!</p>
-            <p>OneUI's core JS functionality was rewritten and adjusted to play nice with AngularJS and some new features were introduced including lazy loading and localStorage support for saving your app’s active layout/theme. Also, Grunt’s build task was enchanced for this version and will now build your whole app and prepare it for production environments.</p>
-            <p>AngularJS directives were created (replacing almost all classic JS helpers from HTML/PHP versions) to assist when initializing jQuery plugins or custom functionality. Furthermore, generic examples are also provided for showcasing a way of using more complex jQuery plugins which require custom code/data to initialize.</p>
+</div>            
+
+<div class="content content-narrow ng-scope">
+    <!-- Forms Row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Bootstrap Forms Validation -->
+            <h2 class="content-heading">Bootstrap Forms</h2>
+            <div class="block">
+                <div class="block-header">
+                    <ul class="block-options">
+                        <li>
+                            <button type="button"><i class="si si-settings"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Validation</h3>
+                </div>
+                <div class="block-content block-content-narrow">
+                    <!-- jQuery Validation (.js-validation-bootstrap class is initialized in js/controllers.js -> FormsValidationCtrl Controller) -->
+                    <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                    <form class="js-validation-bootstrap form-horizontal ng-pristine ng-valid" action="index.html" method="post" novalidate="novalidate">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-username">Username <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-username" name="val-username" placeholder="Choose a nice username..">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-email">Email <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-email" name="val-email" placeholder="Enter your valid email..">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-password">Password <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="password" id="val-password" name="val-password" placeholder="Choose a good one..">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-confirm-password">Confirm Password <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="password" id="val-confirm-password" name="val-confirm-password" placeholder="..and confirm it to be safe!">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-suggestions">Suggestions <span class="text-danger">*</span></label>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="18" placeholder="Share your ideas with us.."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-skill">Best Skill <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="val-skill" name="val-skill">
+                                    <option value="">Please select</option>
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="ruby">Ruby</option>
+                                    <option value="php">PHP</option>
+                                    <option value="asp">ASP.NET</option>
+                                    <option value="python">Python</option>
+                                    <option value="mysql">MySQL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-currency">Currency <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-currency" name="val-currency" placeholder="$30.50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-website">Website <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-website" name="val-website" placeholder="http://example.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-phoneus">Phone (US) <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-digits">Digits <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-digits" name="val-digits" placeholder="3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-number">Number <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-number" name="val-number" placeholder="3.0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val-range">Range [1, 5] <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input class="form-control" type="text" id="val-range" name="val-range" placeholder="3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Terms <span class="text-danger">*</span></label>
+                            <div class="col-md-8">
+                                <label class="css-input css-checkbox css-checkbox-primary" for="val-terms">
+                                    <input type="checkbox" id="val-terms" name="val-terms" value="1"><span></span> I agree to the terms
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Bootstrap Forms Validation -->
+        </div>
+        <div class="col-lg-6">
+            <!-- Material Forms Validation -->
+            <h2 class="content-heading">Material Forms</h2>
+            <div class="block">
+                <div class="block-header">
+                    <ul class="block-options">
+                        <li>
+                            <button type="button"><i class="si si-settings"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Validation</h3>
+                </div>
+                <div class="block-content block-content-narrow">
+                    <!-- jQuery Validation (.js-validation-material class is initialized in js/controllers.js -> FormsValidationCtrl Controller) -->
+                    <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                    <form class="js-validation-material form-horizontal push-10-t ng-pristine ng-valid" action="index.html" method="post" novalidate="novalidate">
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="val-username2" name="val-username2" placeholder="Choose a nice username..">
+                                    <label for="val-username2">Username</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="val-email2" name="val-email2" placeholder="Enter your valid email..">
+                                    <label for="val-email2">Email</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="password" id="val-password2" name="val-password2" placeholder="Choose a good one..">
+                                    <label for="val-password2">Password</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="password" id="val-confirm-password2" name="val-confirm-password2" placeholder="..and confirm it to be safe!">
+                                    <label for="val-confirm-password2">Confirm Password</label>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="form-material">
+                                    <textarea class="form-control" id="val-suggestions2" name="val-suggestions2" rows="3" placeholder="Share your ideas with us.."></textarea>
+                                    <label for="val-suggestions2">Suggestions</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <select class="form-control" id="val-skill2" name="val-skill2">
+                                        <option value="">Please select</option>
+                                        <option value="html">HTML</option>
+                                        <option value="css">CSS</option>
+                                        <option value="javascript">JavaScript</option>
+                                        <option value="ruby">Ruby</option>
+                                        <option value="php">PHP</option>
+                                        <option value="asp">ASP.NET</option>
+                                        <option value="python">Python</option>
+                                        <option value="mysql">MySQL</option>
+                                    </select>
+                                    <label for="val-skill2">Best Skill</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="val-currency2" name="val-currency2" placeholder="$30.50">
+                                    <label for="val-currency2">Currency</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="val-phoneus2" name="val-phoneus2" placeholder="212-999-0000">
+                                    <label for="val-phoneus2">Phone (US)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="val-website2" name="val-website2" placeholder="http://example.com">
+                                    <label for="val-website2">Website</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="val-digits2" name="val-digits2" placeholder="3">
+                                    <label for="val-digits2">Digits</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="val-number2" name="val-number2" placeholder="3.0">
+                                    <label for="val-number2">Number</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="val-range2" name="val-range2" placeholder="3">
+                                    <label for="val-range2">Range [1, 5]</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div>
+                                    <label>Terms <span class="text-danger">*</span></label>
+                                </div>
+                                <label class="css-input css-checkbox css-checkbox-primary" for="val-terms2">
+                                    <input type="checkbox" id="val-terms2" name="val-terms2" value="1"><span></span> I agree to the terms
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END Material Forms Validation -->
         </div>
     </div>
+    <!-- END Forms Row -->
 </div>
-<div class="content text-center">
-    <p>
-        <a class="btn btn-lg btn-minw btn-primary" data-ui-sref="dashboard">Get Started! <i class="fa fa-fw fa-arrow-right push-5-l"></i></a>
-    </p>
-    <p class="text-center">
-        Crafted with <i class="fa fa-heart text-city"></i> by <a class="font-w600" href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
-    </p>
-</div>
-<!-- END Page Content -->
+ 
