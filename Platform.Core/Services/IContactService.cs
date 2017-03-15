@@ -8,6 +8,7 @@ namespace Platform.Core.Services
     public interface IContactService : IDisposable
     {
         Task<List<ContactListModel>> GetAllContacts();
+        Task<List<ContactListModel>> GetContacts(ContactsPagingModel page);
         Task<bool> CreateContact(ContactModel contact);
         Task<bool> CreateContact(FastContactModel contact);
     }
