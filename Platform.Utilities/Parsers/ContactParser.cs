@@ -58,7 +58,6 @@ namespace Platform.Utilities.Parsers
                     workSheet.Cells[rowIterator, 11].Value = model[rowIterator - 2].Country ?? "";
                     workSheet.Cells[rowIterator, 12].Value = model[rowIterator - 2].VatNumber ?? "";
                 }
-                package.Save();
                 var stream = new MemoryStream(package.GetAsByteArray());
                 return stream;
             }
