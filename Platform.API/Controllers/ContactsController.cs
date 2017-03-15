@@ -13,26 +13,39 @@ using System.Web.Http.ModelBinding;
 
 namespace Platform.API.Controllers
 {
-    [RoutePrefix("Contacts")]
+    [RoutePrefix("api/Contacts")]
     public class ContactsController : ApiController
     {
         private IContactService _contactService;
         private IExcelParser<ContactModel> _excelParser;
 
-        /// <summary>
-        ///     Ctor.
-        /// </summary>
-        /// <param name="excelParser"></param>
-        public ContactsController(IExcelParser<ContactModel> excelParser, IContactService contactService)
-        {
-            _excelParser = excelParser;
-            _contactService = contactService;
-        }
+        ///// <summary>
+        /////     Ctor.
+        ///// </summary>
+        ///// <param name="excelParser"></param>
+        //public ContactsController(IExcelParser<ContactModel> excelParser, IContactService contactService)
+        //{
+        //    _excelParser = excelParser;
+        //    _contactService = contactService;
+        //}
 
         [HttpGet]
-        public async Task<IEnumerable<ContactListModel>> Get(ContactsPagingModel page)
+        public IEnumerable<ContactListModel> Get(ContactsPagingModel page)
         {
-            return await _contactService.GetContacts(page);
+            return  new List<ContactListModel> {
+                new ContactListModel { Name = "John Doe", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe1", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe2", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe3", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe4", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe5", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe6", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe7", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe8", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe9", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe10", Address = "Some street", ZipCode="0000" },
+                new ContactListModel { Name = "John Doe11", Address = "Some street", ZipCode="0000" },
+            }; //await _contactService.GetContacts(page);
         }
 
         [HttpPost]

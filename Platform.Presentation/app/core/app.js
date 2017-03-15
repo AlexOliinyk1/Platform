@@ -20,7 +20,20 @@ App.config(['$stateProvider', '$urlRouterProvider',
         $stateProvider
             .state('angularjs', {
                 url: '/angularjs',
-                templateUrl: 'assets/views/ready_angularjs.html'
+                controller: 'ContactsCtrl',
+                templateUrl: 'assets/views/ready_angularjs.html',
+                resolve: {
+                    deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            insertBefore: '#css-bootstrap',
+                            serie: true,
+                            files: [
+                                'assets/js/plugins/datatables/jquery.dataTables.min.css',
+                                'assets/js/plugins/datatables/jquery.dataTables.min.js'
+                            ]
+                        });
+                    }]
+                }
             })
             .state('dashboard', {
                 url: '/dashboard',

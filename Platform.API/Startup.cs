@@ -26,8 +26,8 @@ namespace Platform.API
             HttpConfiguration config = new HttpConfiguration();
             RegisterDependencies(app, config);
             WebApiConfig.Register(config);
-            app.UseWebApi(config);
             app.UseCors(CorsOptions.AllowAll);
+            app.UseWebApi(config);
         }
 
         private void ConfigureOAuth(IAppBuilder app)

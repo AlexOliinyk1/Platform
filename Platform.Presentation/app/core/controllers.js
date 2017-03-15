@@ -305,7 +305,7 @@ App.controller('TablesDatatablesCtrl', ['$scope', '$localStorage', '$window',
         };
 
         // DataTables Bootstrap integration
-        var bsDataTables = function() {
+        var bsDataTables = function () {
             var DataTable = jQuery.fn.dataTable;
 
             // Set the defaults for DataTables init
