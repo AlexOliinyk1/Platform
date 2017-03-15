@@ -27,7 +27,7 @@
  *    }
 **/
 
-angular.module('app', [])
+angular.module('ngAutocomplete', [])
   .directive('ngAutocomplete', function () {
       return {
           require: 'ngModel',

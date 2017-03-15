@@ -1,5 +1,5 @@
 ﻿
-App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactService', 'ngAutocomplete',
+App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactService',
     function ($scope, $localStorage, $window, contactService) {
 
         $scope.address = '';
@@ -15,14 +15,12 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                 ],
                 pageLength: 10,
                 lengthMenu: [[5, 10, 15, 20], [5, 10, 15, 20]],
-                //dom: 'l<"toolbar"> frtip',
-                //initComplete: function () {
-                //    $("div.toolbar")
-                //       .html('<button type="button" id="any_button">Click Me!</button>');
-                //}
+                dom: 'l<"toolbar"> frtip',
+                initComplete: function () {
+                    $("div.toolbar")
+                       .html('<button class="btn btn-info" data-toggle="modal" data-target="#modal-normal" type="button">Launch Modal</button>');
+                }
             });
-
-            //$("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
         };
 
         // DataTables Bootstrap integration

@@ -10,7 +10,8 @@ var App = angular.module('app', [
     'ngStorage',
     'ui.router',
     'ui.bootstrap',
-    'oc.lazyLoad'
+    'oc.lazyLoad',
+    'ngAutocomplete'
 ]);
 
 // Router configuration
