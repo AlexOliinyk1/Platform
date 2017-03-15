@@ -53,12 +53,12 @@ namespace Platform.DataAccess.Resources.Repositories
             return CreateContact(newContact);
         }
 
-        public Task<IEnumerable<ContactListModel>> GetAllContacts()
+        public Task<List<ContactListModel>> GetAllContacts()
         {
             return ToContactList(_context.Contacts.AsQueryable()).ToListAsync();
         }
 
-        public Task<IEnumerable<ContactListModel>> GetContacts(ContactsPagingModel page)
+        public Task<List<ContactListModel>> GetContacts(ContactsPagingModel page)
         {
             int skip = page.CurrentPage * page.ByPage;
 
