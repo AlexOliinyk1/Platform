@@ -139,7 +139,7 @@ namespace Platform.API.Controllers
             if (file != null && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
             {
                 model = _excelParser.ParseFromStream(file.InputStream);
-                //TODO save to db
+                _contactService.CreateContacts(model);
             }
             return Ok();
         }
