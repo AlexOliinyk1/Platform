@@ -84,17 +84,7 @@
                     </ul>
                     <h3 class="block-title">Contacts</h3>
                 </div>
-                $scope. = '';
-                $scope. = '';
-                $scope. = '';
-                $scope. = '';
-                $scope. = '';
-                $scope. = '';
-                $scope. = '';
-                $scope.contact.Zip = '';
-                $scope.contact.Street = '';
-                $scope.contact.City = '';
-                $scope.contact.Country = '';
+               
                 <div class="block-content">
                     <form class="js-validation-bootstrap form-horizontal ng-pristine ng-valid" action="index.html" method="post" novalidate="novalidate">
                         <div class="form-group">
@@ -133,13 +123,13 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-address-search">Input address <span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-address-search" name="val-address-search"  ng-autocomplete ng-model="contact.Street">
+                                <input class="form-control" type="text" id="val-address-search" name="val-address-search" ng-autocomplete ng-model="contact.Street">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-address-search">  </label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-address" name="val-address" disabled="disabled" ng-value="contact.Street">
+                                <input class="form-control" type="text" id="val-address" name="val-address" disabled="disabled" ng-model="contact.Street">
                             </div>
                         </div>
                         <div class="form-group">
@@ -151,13 +141,21 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-phoneus">Phone number <span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000" ng-model="contact.PhoneNumber">
+                                <input class="form-control" type="text" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000"
+                                       ng-model="contact.PhoneNumber"
+                                       ui-mask="(999) 999-9999"
+                                       ui-mask-placeholder
+                                       ui-mask-placeholder-char="_">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-vat">VAT number<span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-vat" name="val-vat" placeholder="212-999-0000" ng-model="contact.VatNumber">
+                                <input class="form-control" type="text" id="val-vat" name="val-vat" placeholder="212-999-0000"
+                                       ng-model="contact.VatNumber"
+                                       ui-mask="(999) 999-9999"
+                                       ui-mask-placeholder
+                                       ui-mask-placeholder-char="_">
                             </div>
                         </div>
                         <div class="form-group">
