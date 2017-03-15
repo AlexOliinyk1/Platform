@@ -2,6 +2,9 @@
 
 namespace Platform.Core.Models.Contacts
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ContactModel
     {
         [Required]

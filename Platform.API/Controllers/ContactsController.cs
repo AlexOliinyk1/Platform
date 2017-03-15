@@ -1,37 +1,38 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading;
 using System.Web.Http;
 using Platform.Core.Models.Contacts;
 using Platform.Core.Utilities;
 using Platform.Core.Services;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Http.ModelBinding;
-using System.Web.Http.Results;
 
 namespace Platform.API.Controllers
 {
     [RoutePrefix("api/Contacts")]
     public class ContactsController : ApiController
     {
-        private IContactService _contactService;
-        private IExcelParser<ContactModel> _excelParser;
+        private readonly IContactService _contactService;
+        private readonly IExcelParser<ContactModel> _excelParser;
 
         /// <summary>
         ///     Ctor.
         /// </summary>
         /// <param name="excelParser"></param>
+        /// <param name="contactService"></param>
         public ContactsController(IExcelParser<ContactModel> excelParser, IContactService contactService)
         {
             _excelParser = excelParser;
             _contactService = contactService;
         }
 
+        /// <summary>
+        /// Gets the specified page.
+        /// </summary>
+        /// <param name="page">The page.</param>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<ContactListModel> Get(ContactsPagingModel page)
         {
@@ -51,6 +52,11 @@ namespace Platform.API.Controllers
             }; //await _contactService.GetContacts(page);
         }
 
+        /// <summary>
+        /// Saves the contact.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        /// <returns></returns>
         [HttpPost]
         [Route("SaveContact")]
         public async Task<IHttpActionResult> SaveContact(ContactModel contact)
@@ -71,6 +77,11 @@ namespace Platform.API.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Saves the fast contact.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        /// <returns></returns>
         [HttpPost]
         [Route("SaveFastContact")]
         public async Task<IHttpActionResult> SaveFastContact(FastContactModel contact)
@@ -91,12 +102,15 @@ namespace Platform.API.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Gets the contacts document.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetContactsDocument")]
         public HttpResponseMessage GetContactsDocument()
         {
-            HttpResponseMessage response;
-            response = Request.CreateResponse(HttpStatusCode.OK);
+            var response = Request.CreateResponse(HttpStatusCode.OK);
             MediaTypeHeaderValue mediaType = new MediaTypeHeaderValue("application/octet-stream");
             response.Content = new StreamContent(_excelParser.ParseToStream(new List<ContactModel>()
             {
@@ -106,11 +120,15 @@ namespace Platform.API.Controllers
                 }
             }));
             response.Content.Headers.ContentType = mediaType;
-            response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("fileName");
-            response.Content.Headers.ContentDisposition.FileName = "Contacts.xlsx";
+            response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("fileName") {FileName = "Contacts.xlsx"};
             return response;
         }
 
+        /// <summary>
+        /// Sets the contacts from document.
+        /// </summary>
+        /// <param name="postedFile">The posted file.</param>
+        /// <returns></returns>
         [HttpPost]
         [Route("SetContactsFromDocument")]
         public IHttpActionResult SetContactsFromDocument(HttpPostedFile postedFile)

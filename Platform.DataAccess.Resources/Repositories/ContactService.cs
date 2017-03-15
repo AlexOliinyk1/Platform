@@ -12,16 +12,21 @@ namespace Platform.DataAccess.Resources.Repositories
 {
     public class ContactService : IContactService
     {
-        private ResourcesContext _context;
+        private readonly ResourcesContext _context;
 
         /// <summary>
-        ///     Ctor.
+        /// Ctor.
         /// </summary>
         public ContactService()
         {
             _context = new ResourcesContext();
         }
 
+        /// <summary>
+        /// Creates the contact.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        /// <returns></returns>
         public Task<bool> CreateContact(ContactModel contact)
         {
             Contact newContact = new Contact {
@@ -43,6 +48,11 @@ namespace Platform.DataAccess.Resources.Repositories
             return CreateContact(newContact);
         }
 
+        /// <summary>
+        /// Creates the contact.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        /// <returns></returns>
         public Task<bool> CreateContact(FastContactModel contact)
         {
             Contact newContact = new Contact {
@@ -53,11 +63,20 @@ namespace Platform.DataAccess.Resources.Repositories
             return CreateContact(newContact);
         }
 
+        /// <summary>
+        /// Gets all contacts.
+        /// </summary>
+        /// <returns></returns>
         public Task<IEnumerable<ContactListModel>> GetAllContacts()
         {
             return ToContactList(_context.Contacts.AsQueryable()).ToListAsync();
         }
 
+        /// <summary>
+        /// Gets the contacts.
+        /// </summary>
+        /// <param name="page">The page.</param>
+        /// <returns></returns>
         public Task<IEnumerable<ContactListModel>> GetContacts(ContactsPagingModel page)
         {
             int skip = page.CurrentPage * page.ByPage;
@@ -74,16 +93,30 @@ namespace Platform.DataAccess.Resources.Repositories
             return ToContactList(pagedQuery).ToListAsync();
         }
 
+        /// <summary>
+        /// Creates the contacts.
+        /// </summary>
+        /// <param name="contacts">The contacts.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
         public Task<bool> CreateContacts(IEnumerable<ContactModel> contacts)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
             _context.Dispose();
         }
 
+        /// <summary>
+        /// Creates the contact.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        /// <returns></returns>
         private Task<bool> CreateContact(Contact contact)
         {
             return Task<bool>.Factory.StartNew(() => {
@@ -102,6 +135,11 @@ namespace Platform.DataAccess.Resources.Repositories
             });
         }
 
+        /// <summary>
+        /// To the contact list.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <returns></returns>
         private IQueryable<ContactListModel> ToContactList(IQueryable<Contact> query)
         {
             return query

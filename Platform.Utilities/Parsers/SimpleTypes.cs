@@ -4,12 +4,17 @@ namespace Platform.Utilities.Parsers
 {
     public static class SimpleTypes
     {
+        /// <summary>
+        /// Parses the date time.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
         public static DateTime? ParseDateTime(string value)
         {
-            long buffer;
             DateTime? date = null;
             if (value != null)
             {
+                long buffer;
                 long.TryParse(value, out buffer);
                 if (buffer != 0)
                 {
@@ -19,21 +24,36 @@ namespace Platform.Utilities.Parsers
             return date;
         }
 
-        public static int parseInt(string value)
+        /// <summary>
+        /// Parses the int.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public static int ParseInt(string value)
         {
             int num;
             Int32.TryParse(value, out num);
             return num;
         }
 
+        /// <summary>
+        /// Parses the phone.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
         public static string ParsePhone(string value)
         {
             int buffer;
             int.TryParse(value, out buffer);
-            return buffer != 0 ? string.Format("{0:(###) ###-####}", buffer) : "";
+            return buffer != 0 ? $"{buffer:(###) ###-####}" : "";
         }
 
-        public static bool parseBool(string value)
+        /// <summary>
+        /// Parses the bool.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public static bool ParseBool(string value)
         {
             bool buffer;
             bool.TryParse(value, out buffer);

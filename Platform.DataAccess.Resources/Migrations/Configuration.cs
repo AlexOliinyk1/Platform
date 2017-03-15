@@ -1,18 +1,15 @@
 namespace Platform.DataAccess.Resources.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Platform.DataAccess.Resources.ResourcesContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ResourcesContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Platform.DataAccess.Resources.ResourcesContext context)
+        protected override void Seed(ResourcesContext context)
         {
             //  This method will be called after migrating to the latest version.
 

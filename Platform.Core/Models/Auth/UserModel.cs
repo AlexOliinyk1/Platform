@@ -2,6 +2,9 @@
 
 namespace Platform.Core.Models.Auth
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserModel
     {
         [Required]
