@@ -10,7 +10,7 @@ using System.Data.Entity.Migrations;
 
 namespace Platform.DataAccess.Resources.Repositories
 {
-    class ContactService : IContactService
+    public class ContactService : IContactService
     {
         private ResourcesContext _context;
 

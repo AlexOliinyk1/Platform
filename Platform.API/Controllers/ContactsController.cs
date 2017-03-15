@@ -19,15 +19,15 @@ namespace Platform.API.Controllers
         private IContactService _contactService;
         private IExcelParser<ContactModel> _excelParser;
 
-        ///// <summary>
-        /////     Ctor.
-        ///// </summary>
-        ///// <param name="excelParser"></param>
-        //public ContactsController(IExcelParser<ContactModel> excelParser, IContactService contactService)
-        //{
-        //    _excelParser = excelParser;
-        //    _contactService = contactService;
-        //}
+        /// <summary>
+        ///     Ctor.
+        /// </summary>
+        /// <param name="excelParser"></param>
+        public ContactsController(IExcelParser<ContactModel> excelParser, IContactService contactService)
+        {
+            _excelParser = excelParser;
+            _contactService = contactService;
+        }
 
         [HttpGet]
         public IEnumerable<ContactListModel> Get(ContactsPagingModel page)
