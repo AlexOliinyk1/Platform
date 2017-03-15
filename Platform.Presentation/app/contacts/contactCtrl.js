@@ -1,6 +1,25 @@
 ﻿
 App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactService',
-    function ($scope, $localStorage, $window, contactService,uploadExcel) {
+    function ($scope, $localStorage, $window, contactService, uploadExcel) {
+
+        $scope.contact.Name = '';
+        $scope.contact.Title = '';
+        $scope.contact.IsCompany = '';
+        $scope.contact.ContactType = '';
+        $scope.contact.Email = '';
+        $scope.contact.VatNumber = '';
+        $scope.contact.PhoneNumber = '';
+        $scope.contact.CustomerType = '';
+        $scope.contact.Zip = '';
+        $scope.contact.Street = '';
+        $scope.contact.City = '';
+        $scope.contact.Country = '';
+
+        function SaveContact(model) {
+            
+            
+        }
+
         $scope.SendExcel = SendExcel;
 
         function SendExcel(file) {
