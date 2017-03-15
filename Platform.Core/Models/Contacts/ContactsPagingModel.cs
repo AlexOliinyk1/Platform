@@ -6,5 +6,6 @@
         public int CurrentPage { get; set; }
 
         public string SearchWord { get; set; }
+        public string ContactType { get; set; }
     }
 }
