@@ -1,10 +1,9 @@
 ﻿
 App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactService',
-    function ($scope, $localStorage, $window, contactService,uploadExcel) {
+    function ($scope, $localStorage, $window, contactService) {
         $scope.SendExcel = SendExcel;
 
         function SendExcel(file) {
-            debugger;
             contactService.uploadExcel(file);
         }
 

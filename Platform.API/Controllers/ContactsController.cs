@@ -113,9 +113,9 @@ namespace Platform.API.Controllers
 
         [HttpPost]
         [Route("SetContactsFromDocument")]
-        public IHttpActionResult SetContactsFromDocument(HttpPostedFile postedFile)
+        public IHttpActionResult SetContactsFromDocument()
         {
-            HttpPostedFile file = postedFile;//Request?.Files["UploadedFile"];
+            var file = HttpContext.Current.Request.Files.Count > 0 ? HttpContext.Current.Request.Files[0] : null;
             IEnumerable<ContactModel> model = null;
             if (file != null && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
             {

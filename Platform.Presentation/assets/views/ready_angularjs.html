@@ -25,7 +25,11 @@
 
 <!-- Page Content -->
 <div class="content">
-
+    <div class="row">
+        <label class="btn btn-default btn-file">
+            Browse <input ng-model="File" type="file" hidden onchange="angular.element(this).scope().SendExcel(this.files[0])">
+        </label>
+    </div>
     <div class="block">
         <div class="block-header">
             <ul class="nav nav-tabs" data-js-tabs="">

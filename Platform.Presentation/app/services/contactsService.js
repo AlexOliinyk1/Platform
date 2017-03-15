@@ -21,12 +21,16 @@ App.factory('contactService', ['$http', '$location', function ($http, $location)
 
     var uploadExcel = function (excelDocument) {
         debugger;
+        var fd = new FormData();
+        fd.append("file", excelDocument);
         return $http({
             method: 'post',
             url: baseUrl + '/api/Contacts/SetContactsFromDocument',
-            data: { excelDocument },
-            headers: { 'Content-Type': excelDocument.type }
+            data: fd,
+            headers: { 'Content-Type': undefined },
+            transformRequest: angular.identity
         }).then(function (result) {
+            debugger;
             return result.data;
         });
     }
