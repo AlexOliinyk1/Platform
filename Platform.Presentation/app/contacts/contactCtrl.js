@@ -1,7 +1,7 @@
 ﻿
 App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactService',
     function ($scope, $localStorage, $window, contactService, uploadExcel) {
-
+        $scope.contact = {};
         $scope.contact.Name = '';
         $scope.contact.Title = '';
         $scope.contact.IsCompany = '';
@@ -205,7 +205,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         };
 
         var loadContacts = function () {
-            contactService.loadContacts($scope.pageModel.page, $scope.pageModel., 10).then(function (result) {
+            contactService.loadContacts($scope.pageModel.page, $scope.pageModel.byPage, $scope.pageModel.searchWord).then(function (result) {
                 var datatable = jQuery('.js-dataTable-full').dataTable().api();
 
                 datatable.clear();

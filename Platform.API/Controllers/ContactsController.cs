@@ -1,18 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading;
-using System.Web.Http;
-using Platform.Core.Models.Contacts;
-using Platform.Core.Utilities;
-using Platform.Core.Services;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Http.ModelBinding;
-using System.Web.Http.Results;
+using System.Web.Http;
+using Platform.Core.Models.Contacts;
+using Platform.Core.Services;
+using Platform.Core.Utilities;
 
 namespace Platform.API.Controllers
 {
