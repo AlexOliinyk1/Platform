@@ -15,14 +15,14 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         $scope.contact.City = '';
         $scope.contact.Country = '';
 
-        function SaveContact(model) {
+        function saveContact(model) {
 
 
         }
 
-        $scope.SendExcel = SendExcel;
+        $scope.SendExcel = sendExcel;
 
-        function SendExcel(file) {
+        function sendExcel(file) {
             contactService.uploadExcel(file);
         }
 
@@ -40,17 +40,17 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                 dom: 'l<"toolbar"> frtip',
                 initComplete: function () {
                     $("div.toolbar")
-                       .html('<button class="btn btn-info" data-toggle="modal" data-target="#modal-normal" type="button">Launch Modal</button>');
+                       .html('<button class="btn btn-info" data-toggle="modal" data-target="#modal-normal" type="button">Add New</button>');
                 }
             });
         };
 
         // DataTables Bootstrap integration
         var bsDataTables = function () {
-            var DataTable = jQuery.fn.dataTable;
+            var dataTable = jQuery.fn.dataTable;
 
             // Set the defaults for DataTables init
-            jQuery.extend(true, DataTable.defaults, {
+            jQuery.extend(true, dataTable.defaults, {
                 dom:
                     "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
                     "<'row'<'col-sm-12'tr>>" +
@@ -63,19 +63,19 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                         sPrevious: '<i class="fa fa-angle-left"></i>',
                         sNext: '<i class="fa fa-angle-right"></i>'
                     }
-                },
+                }
             });
 
             // Default class modification
-            jQuery.extend(DataTable.ext.classes, {
+            jQuery.extend(dataTable.ext.classes, {
                 sWrapper: "dataTables_wrapper form-inline dt-bootstrap",
                 sFilterInput: "form-control",
                 sLengthSelect: "form-control"
             });
 
             // Bootstrap paging button renderer
-            DataTable.ext.renderer.pageButton.bootstrap = function (settings, host, idx, buttons, page, pages) {
-                var api = new DataTable.Api(settings);
+            dataTable.ext.renderer.pageButton.bootstrap = function (settings, host, idx, buttons, page, pages) {
+                var api = new dataTable.Api(settings);
                 var classes = settings.oClasses;
                 var lang = settings.oLanguage.oPaginate;
                 var btnDisplay, btnClass;
@@ -163,9 +163,9 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
             };
 
             // TableTools Bootstrap compatibility - Required TableTools 2.1+
-            if (DataTable.TableTools) {
+            if (dataTable.TableTools) {
                 // Set the classes that TableTools uses to something suitable for Bootstrap
-                jQuery.extend(true, DataTable.TableTools.classes, {
+                jQuery.extend(true, dataTable.TableTools.classes, {
                     "container": "DTTT btn-group",
                     "buttons": {
                         "normal": "btn btn-default",
@@ -187,7 +187,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                 });
 
                 // Have the collection use a bootstrap compatible drop down
-                jQuery.extend(true, DataTable.TableTools.DEFAULTS.oTags, {
+                jQuery.extend(true, dataTable.TableTools.DEFAULTS.oTags, {
                     "collection": {
                         "container": "ul",
                         "button": "li",
