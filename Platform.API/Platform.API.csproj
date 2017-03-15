@@ -168,6 +168,10 @@
       <Project>{EF677C85-E2F3-4036-9ACA-AA63D6106F55}</Project>
       <Name>Platform.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Platform.DataAccess.Resources\Platform.DataAccess.Resources.csproj">
+      <Project>{17c3159a-2088-4189-ab95-e5d6bb045349}</Project>
+      <Name>Platform.DataAccess.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Platform.DataAccess\Platform.DataAccess.Auth.csproj">
       <Project>{17a9f28a-c83f-4c84-8232-2d13dcbdb771}</Project>
       <Name>Platform.DataAccess.Auth</Name>

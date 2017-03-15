@@ -11,14 +11,19 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         // Init full DataTable, for more examples you can check out https://www.datatables.net/
         var initDataTableFull = function () {
             jQuery('.js-dataTable-full').dataTable({
-                columnDefs: [{ orderable: false, targets: [3] }],
+                columnDefs: [{ orderable: false, targets: [2] }],
                 columns:[
                     { data: 'name', title:'Name' },
                     { data: 'address', title: 'Address' },
                     { data: 'zipCode', title: 'Zip Code' }
                 ],
                 pageLength: 10,
-                lengthMenu: [[5, 10, 15, 20], [5, 10, 15, 20]]
+                lengthMenu: [[5, 10, 15, 20], [5, 10, 15, 20]],
+                dom: 'l<"toolbar"> frtip',
+                initComplete: function () {
+                    $("div.toolbar")
+                       .html('<button class="btn btn-info" data-toggle="modal" data-target="#modal-normal" type="button">Launch Modal</button>');
+                }
             });
         };
 
@@ -40,7 +45,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                         sPrevious: '<i class="fa fa-angle-left"></i>',
                         sNext: '<i class="fa fa-angle-right"></i>'
                     }
-                }
+                },
             });
 
             // Default class modification
@@ -176,17 +181,12 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
 
         var loadContacts = function () {
             contactService.loadContacts(1, 1, 10).then(function (result) {
-                //var data = [];
-                //for (var i = 0; i < result.length; i++) {
-                //    data.push([result[i].name, result[i].address, result[i].zipCode]);
-                //}
                 var datatable = jQuery('.js-dataTable-full').dataTable().api();
-                //t.data = result;
+
                 datatable.clear();
                 datatable.rows.add(result);
                 datatable.draw();
 
-                //$scope.options.data = result;
                 console.log(result);
             });
         }
