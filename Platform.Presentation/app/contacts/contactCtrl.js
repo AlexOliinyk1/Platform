@@ -1,7 +1,12 @@
 ﻿
 App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactService',
-    function ($scope, $localStorage, $window, contactService) {
-    
+    function ($scope, $localStorage, $window, contactService,uploadExcel) {
+        $scope.SendExcel = SendExcel;
+
+        function SendExcel(file) {
+            debugger;
+            contactService.uploadExcel(file);
+        }
 
         // Init full DataTable, for more examples you can check out https://www.datatables.net/
         var initDataTableFull = function () {
