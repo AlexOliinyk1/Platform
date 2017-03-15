@@ -88,12 +88,13 @@
                     </ul>
                     <h3 class="block-title">Contacts</h3>
                 </div>
+               
                 <div class="block-content">
                     <form class="js-validation-bootstrap form-horizontal ng-pristine ng-valid" action="index.html" method="post" novalidate="novalidate">
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-skill">Type of contact<span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <select class="form-control" id="val-skill" name="val-skill">
+                                <select class="form-control" id="val-skill" name="val-skill" ng-model="contact.ContactType">
                                     <option value="">Please select</option>
                                     <option value="html">Customer</option>
                                     <option value="css">Supplier</option>
@@ -106,64 +107,71 @@
                             <label class="col-md-4 control-label">Company <span class="text-danger">*</span></label>
                             <div class="col-md-8">
                                 <label class="css-input css-checkbox css-checkbox-primary" for="val-company">
-                                    <input type="checkbox" id="val-company" name="val-company" value="1"><span></span>
+                                    <input type="checkbox" id="val-company" name="val-company" value="1" ng-model="contact.IsCompany"><span></span>
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-title">Title <span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-title" name="val-title">
+                                <input class="form-control" type="text" id="val-title" name="val-title" ng-model="contact.Title">
                             </div>
                         </div>
                         <div class="form-group has-error">
                             <label class="col-md-4 control-label" for="val-username">Name <span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input class="form-control valid" type="text" id="val-username" name="val-username" placeholder="Type name..." aria-required="true" aria-describedby="val-username-error" aria-invalid="true">
+                                <input class="form-control valid" type="text" id="val-username" name="val-username" placeholder="Type name..." aria-required="true" aria-describedby="val-username-error" aria-invalid="true" ng-model="contact.Name">
                                 <div id="val-username-error" class="help-block animated fadeInDown">Please enter a name</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-address-search">Input address <span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-address-search" name="val-address-search"  ng-autocomplete ng-model="address">
+                                <input class="form-control" type="text" id="val-address-search" name="val-address-search" ng-autocomplete ng-model="contact.Street">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-address-search">  </label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-address" name="val-address" disabled="disabled" ng-value="address">
+                                <input class="form-control" type="text" id="val-address" name="val-address" disabled="disabled" ng-model="contact.Street">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-email">Email <span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-email" name="val-email" placeholder="Enter your valid email..">
+                                <input class="form-control" type="text" id="val-email" name="val-email" placeholder="Enter your valid email.." ng-model="contact.Email">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-phoneus">Phone number <span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000">
+                                <input class="form-control" type="text" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000"
+                                       ng-model="contact.PhoneNumber"
+                                       ui-mask="(999) 999-9999"
+                                       ui-mask-placeholder
+                                       ui-mask-placeholder-char="_">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val-vat">VAT number<span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input class="form-control" type="text" id="val-vat" name="val-vat" placeholder="212-999-0000">
+                                <input class="form-control" type="text" id="val-vat" name="val-vat" placeholder="212-999-0000"
+                                       ng-model="contact.VatNumber"
+                                       ui-mask="(999) 999-9999"
+                                       ui-mask-placeholder
+                                       ui-mask-placeholder-char="_">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+                                <button class="btn btn-sm btn-primary" type="submit" ng-click="SaveContact(contact)">Submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>
-                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal"><i class="fa fa-check"></i> Ok</button>
+                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>  
             </div>
         </div>
     </div>

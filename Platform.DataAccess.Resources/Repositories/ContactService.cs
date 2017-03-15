@@ -53,12 +53,12 @@ namespace Platform.DataAccess.Resources.Repositories
             return CreateContact(newContact);
         }
 
-        public Task<List<ContactListModel>> GetAllContacts()
+        public Task<IEnumerable<ContactListModel>> GetAllContacts()
         {
             return ToContactList(_context.Contacts.AsQueryable()).ToListAsync();
         }
 
-        public Task<List<ContactListModel>> GetContacts(ContactsPagingModel page)
+        public Task<IEnumerable<ContactListModel>> GetContacts(ContactsPagingModel page)
         {
             int skip = page.CurrentPage * page.ByPage;
 
@@ -72,6 +72,11 @@ namespace Platform.DataAccess.Resources.Repositories
                 .Take(page.ByPage);
 
             return ToContactList(pagedQuery).ToListAsync();
+        }
+
+        public Task<bool> CreateContacts(IEnumerable<ContactModel> contacts)
+        {
+            throw new NotImplementedException();
         }
 
         public void Dispose()
