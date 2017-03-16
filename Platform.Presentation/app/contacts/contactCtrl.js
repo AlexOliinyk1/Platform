@@ -15,6 +15,15 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         $scope.contact.City = '';
         $scope.contact.Country = '';
 
+        $scope.pageModel = {
+            byPage: 10,
+            currentPage: 0,
+            searchWord: '',
+            contactType: ''
+        };
+
+        $scope.contactTypes = ['ALL', 'CUSTOMER', 'SUPPLIER', 'EMPLOYEE', 'OTHER'];
+
         function saveContact(model) {
 
 
@@ -24,6 +33,11 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
 
         function sendExcel(file) {
             contactService.uploadExcel(file);
+        }
+
+        $scope.SelectContactType = function (type) {
+            $scope.pageModel.contactType = type;
+            loadContacts();
         }
 
         // Init full DataTable, for more examples you can check out https://www.datatables.net/
@@ -197,15 +211,8 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
             }
         };
 
-        $scope.pageModel = {
-            byPage: 10,
-            page: 0,
-            searchWord: '',
-            contactType: ''
-        };
-
         var loadContacts = function () {
-            contactService.loadContacts($scope.pageModel.page, $scope.pageModel.byPage, $scope.pageModel.searchWord).then(function (result) {
+            contactService.loadContacts($scope.pageModel.page, $scope.pageModel.byPage, $scope.pageModel.searchWord, $scope.pageModel.contactType).then(function (result) {
                 var datatable = jQuery('.js-dataTable-full').dataTable().api();
 
                 datatable.clear();

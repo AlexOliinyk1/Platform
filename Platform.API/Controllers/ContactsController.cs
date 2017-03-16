@@ -35,7 +35,7 @@ namespace Platform.API.Controllers
         /// <param name="page">The page.</param>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<ContactListModel> Get(ContactsPagingModel page)
+        public IEnumerable<ContactListModel> Get([FromBody]ContactsPagingModel page)
         {
             return new List<ContactListModel> {
                 new ContactListModel { Name = "John Doe", Address = "Some street", ZipCode="0000" },

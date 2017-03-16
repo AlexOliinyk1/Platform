@@ -6,17 +6,23 @@ App.factory('contactService', ['$http', '$location', function ($http, $location)
 
     var baseUrl = protocol + "://" + host + ":" + port;
 
-    var loadContacts = function (page, perPage, searchWord) {
+    var loadContacts = function (page, perPage, searchWord, contactType) {
+
+        return $http.get(baseUrl + '/api/Contacts', { page, perPage, searchWord, contactType }, { headers: { 'Content-Type': 'application/json' } })
+            .then(function (result) {
+                return result.data;
+            });
 
         //Todo: implement paging {page, perPage, searchWord}
-        return $http({
-            method: 'get',
-            url: baseUrl + '/api/Contacts',
-            data: { page, perPage, searchWord },
-            headers: {'Content-Type': 'application/json'}
-        }).then(function (result) {
-            return result.data;
-        });
+
+        //return $http({
+        //    method: 'get',
+        //    url: baseUrl + '/api/Contacts',
+        //    data: JSON.stringify({ page, perPage, searchWord, contactType }),
+        //    headers: {'Content-Type': 'application/json'}
+        //}).then(function (result) {
+        //    return result.data;
+        //});
     }
 
     var uploadExcel = function (excelDocument) {

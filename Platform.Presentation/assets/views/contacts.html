@@ -33,36 +33,8 @@
     <div class="block">
         <div class="block-header">
             <ul class="nav nav-tabs" data-js-tabs="">
-                <li class="active">
-                    <a href="#btabswo-static-all">All</a>
-                </li>
-                <li>
-                    <a href="#btabswo-static-customer">Customer</a>
-                </li>
-                <li>
-                    <a href="#btabswo-static-supplier">Supplier</a>
-                </li>
-                <li>
-                    <a href="#btabswo-static-employee">Employee</a>
-                </li>
-                <li>
-                    <a href="#btabswo-static-other">Other</a>
-                </li>
-                <li class="pull-right">
-                    <ul class="block-options push-10-t push-10-r">
-                        <li>
-                            <button type="button" data-js-block-option="" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
-                        </li>
-                        <li>
-                            <button type="button" data-js-block-option="" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                        </li>
-                        <li>
-                            <button type="button" data-js-block-option="" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
-                        </li>
-                        <li>
-                            <button type="button" data-js-block-option="" data-action="close"><i class="si si-close"></i></button>
-                        </li>
-                    </ul>
+                <li ng-repeat="type in contactTypes">
+                    <button class="btn btn-default" href="#btabswo-static-all" ng-click="SelectContactType(type)">{{type}}</button>
                 </li>
             </ul>
         </div>
