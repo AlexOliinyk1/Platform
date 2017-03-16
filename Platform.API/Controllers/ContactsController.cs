@@ -9,6 +9,7 @@ using Platform.Core.Services;
 using Platform.Core.Utilities;
 using System.Threading.Tasks;
 using System.Web;
+using Platform.Core.Common;
 
 namespace Platform.API.Controllers
 {
@@ -37,7 +38,10 @@ namespace Platform.API.Controllers
         [HttpGet]
         public async Task<IEnumerable<ContactListModel>> Get([FromUri]ContactsPagingModel page)
         {
-            page.SearchWord = string.Empty;
+            if(string.IsNullOrEmpty(page.ContactType))
+            {
+                page.ContactType = ContactTypes.ALL;
+            }
 
             try
             {
@@ -45,8 +49,8 @@ namespace Platform.API.Controllers
             }
             catch(System.Exception)
             {
-
-                throw;
+                //  todo: handle error 
+                return new List<ContactListModel>();
             }
         }
 

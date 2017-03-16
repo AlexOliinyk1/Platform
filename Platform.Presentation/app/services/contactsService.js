@@ -7,25 +7,11 @@ App.factory('contactService', ['$http', '$location', function ($http, $location)
     var baseUrl = protocol + "://" + host + ":" + port;
 
     var loadContacts = function (currentPage, byPage, searchWord, contactType) {
-
-        var data = JSON.stringify({ page: { currentPage, byPage, searchWord, contactType } });
-
-        //return $http.get(baseUrl + '/api/Contacts?' + JSON.stringify(data),
-        //    {
-        //        headers: {
-        //            'Content-Type': 'application/json'
-        //        }
-        //    }
-        //).then(function (result) {
-        //    return result.data;
-        //});
-
         //Todo: implement paging {currentPage, byPage, searchWord}
-
         return $http({
             method: 'get',
             url: baseUrl + '/api/Contacts?currentPage=' + currentPage + '&byPage=' + byPage + '&searchWord=' + searchWord + '&contactType=' + contactType,
-            headers: {'Content-Type': 'application/json'}
+            headers: { 'Content-Type': 'application/json' }
         }).then(function (result) {
             return result.data;
         });

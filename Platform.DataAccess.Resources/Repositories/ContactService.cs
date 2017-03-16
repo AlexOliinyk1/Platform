@@ -80,23 +80,21 @@ namespace Platform.DataAccess.Resources.Repositories
         /// <returns></returns>
         public Task<List<ContactListModel>> GetContacts(ContactsPagingModel page)
         {
-            int skip = page.CurrentPage * page.ByPage;
+            var pagedQuery = _context.Contacts.AsQueryable();
 
-            var pagedQuery = _context.Contacts
-                .OrderBy(x => x.Name)
-                .Where(x =>
-                    x.Name.Contains(page.SearchWord)
-                    || x.Address.AddressLine.Contains(page.SearchWord)
-                    || x.Address.Zip.Contains(page.SearchWord)
-                );
+            if(!string.IsNullOrEmpty(page.SearchWord))
+            {
+                pagedQuery = pagedQuery.Where(x => x.Name.Contains(page.SearchWord) || x.Address.AddressLine.Contains(page.SearchWord) || x.Address.Zip.Contains(page.SearchWord));
+            }
 
             if(!ContactTypes.ALL.Equals(page.ContactType, StringComparison.InvariantCultureIgnoreCase))
             {
-                pagedQuery = pagedQuery
-                    .Where(x => x.ContactType.Equals(page.ContactType, StringComparison.InvariantCultureIgnoreCase));
+                pagedQuery = pagedQuery.Where(x => x.ContactType.Equals(page.ContactType, StringComparison.InvariantCultureIgnoreCase));
             }
 
+            //int skip = page.CurrentPage * page.ByPage;
             //pagedQuery = pagedQuery
+            //    .OrderBy(x => x.Name)
             //    .Skip(skip)
             //    .Take(page.ByPage);
 
