@@ -31,6 +31,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
 
         function sendExcel(file) {
             contactService.uploadExcel(file).then(function () {
+                $("#excelFileExport").val('');
                 loadContacts();
             });
         }
@@ -235,7 +236,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                 console.log(result);
             });
         };
-        
+
         var initValidationBootstrap = function () {
             jQuery('.js-validation-bootstrap').validate({
                 ignore: [],
@@ -270,7 +271,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                     },
                     'val-vat': {
                         number: true
-                    },  
+                    },
                     'val-phoneus': {
                         phoneUS: true
                     },
@@ -281,10 +282,10 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                         minlength: 'Your username must consist of at least 3 characters'
                     },
                     'val-contact-type': 'Please select a contact type!',
-                    'val-email': 'Please enter a valid email address', 
-                    'val-vat': 'Please enter a number!',  
+                    'val-email': 'Please enter a valid email address',
+                    'val-vat': 'Please enter a number!',
                     'val-phoneus': 'Please enter a US phone!'
-                   
+
                 }
             });
         };

@@ -34,9 +34,9 @@
     <div class="row">
         <div class="col-md-12">
             <!--<button class="btn btn-info push-5-r push-10" type="button" ng-click="DownloadExel()"><i class="fa fa-download"></i> Download</button>-->
-            <a href="http://localhost:57090/api/Contacts/GetContactsDocument" target="_blank" class="btn btn-info push-5-r push-10"><i class="fa fa-download"></i> Download</a>
+            <a href="http://localhost:57090/api/Contacts/GetContactsDocument" target="_blank" class="btn btn-info push-5-r push-10"><i class="fa fa-download"></i> Export</a>
             <label class="btn btn-primary btn-file push-10">
-                <i class="fa fa-upload"></i>  Upload <input type="file" style="display: none;" ng-model="File" hidden onchange="angular.element(this).scope().SendExcel(this.files[0])">
+                <i class="fa fa-upload"></i>  Import <input type="file" style="display: none;" id="excelFileExport" hidden onchange="angular.element(this).scope().SendExcel(this.files[0])">
             </label>
             <button class="btn btn-success push-5-r push-10 pull-right" data-toggle="modal" data-target="#create-contact" type="button"><i class="fa fa-plus"></i> Add New</button>
         </div>
@@ -71,7 +71,7 @@
                     </ul>
                     <h3 class="block-title">Contacts</h3>
                 </div>
-               
+
                 <div class="block-content">
                     <form class="js-validation-bootstrap form-horizontal ng-pristine ng-valid" id="createContactForm" action="#"  onsubmit="return false;" novalidate="novalidate">
                         <div class="form-group">
@@ -86,7 +86,7 @@
                                 </select>
                             </div>
                         </div>
-                       
+
                         <div class="form-group">
                             <label class="col-md-4 control-label">Company</label>
                             <div class="col-md-8">
@@ -151,7 +151,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>  
+                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
