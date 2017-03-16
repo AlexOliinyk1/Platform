@@ -1,10 +1,8 @@
 ﻿
 App.factory('contactService', ['$http', '$location', function ($http, $location) {
-    var protocol = $location.protocol();
-    var host = $location.host();
-    var port = 57090;
+    var host = 'http://platform-001-site1.ftempurl.com';
 
-    var baseUrl = protocol + "://" + host + ":" + port;
+    var baseUrl = host;
 
     var loadContacts = function (currentPage, byPage, searchWord, contactType) {
         //Todo: implement paging {currentPage, byPage, searchWord}
