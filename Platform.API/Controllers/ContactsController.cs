@@ -63,7 +63,7 @@ namespace Platform.API.Controllers
         [Route("SaveContact")]
         public async Task<IHttpActionResult> SaveContact(ContactModel contact)
         {
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 //Todo: Make base api controller with method to handle validation error
                 return BadRequest("Invalid model");
@@ -71,7 +71,7 @@ namespace Platform.API.Controllers
 
             var result = await _contactService.CreateContact(contact);
 
-            if (!result)
+            if(!result)
             {
                 return this.BadRequest();
             }
@@ -88,7 +88,7 @@ namespace Platform.API.Controllers
         [Route("SaveFastContact")]
         public async Task<IHttpActionResult> SaveFastContact(FastContactModel contact)
         {
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 //Todo: Make base api controller with method to handle validation error
                 return BadRequest("Invalid model");
@@ -96,7 +96,7 @@ namespace Platform.API.Controllers
 
             var result = await _contactService.CreateContact(contact);
 
-            if (!result)
+            if(!result)
             {
                 return this.BadRequest();
             }
@@ -119,7 +119,7 @@ namespace Platform.API.Controllers
 
             response.Content = new StreamContent(_excelParser.ParseToStream(contacts));
             response.Content.Headers.ContentType = mediaType;
-            response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("fileName") {FileName = "Contacts.xlsx"};
+            response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("fileName") { FileName = "Contacts.xlsx" };
 
             return response;
         }
@@ -131,14 +131,18 @@ namespace Platform.API.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("SetContactsFromDocument")]
-        public IHttpActionResult SetContactsFromDocument()
+        public async Task<IHttpActionResult> SetContactsFromDocument()
         {
             var file = HttpContext.Current.Request.Files.Count > 0 ? HttpContext.Current.Request.Files[0] : null;
             IEnumerable<ContactModel> model = null;
-            if (file != null && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+            if(file != null && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
             {
                 model = _excelParser.ParseFromStream(file.InputStream);
-                _contactService.CreateContacts(model);
+
+                foreach(var contactModel in model)
+                {
+                    await _contactService.CreateContact(contactModel);
+                }
             }
             return Ok();
         }

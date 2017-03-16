@@ -42,7 +42,9 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         }
 
         function sendExcel(file) {
-            contactService.uploadExcel(file);
+            contactService.uploadExcel(file).then(function () {
+                loadContacts();
+            });
         }
 
         function SaveContact(model) {

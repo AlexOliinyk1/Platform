@@ -97,26 +97,6 @@ namespace Platform.DataAccess.Resources.Repositories
         }
 
         /// <summary>
-        /// Creates the contacts.
-        /// </summary>
-        /// <param name="contacts">The contacts.</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public Task<bool> CreateContacts(IEnumerable<ContactModel> contacts)
-        {
-            return Task<bool>.Factory.StartNew(() => {
-                foreach(var contactModel in contacts)
-                {
-                    Contact contact = ParseContactFromModel(contactModel);
-
-                    CreateContact(contact);
-                }
-
-                return true;
-            });
-        }
-
-        /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()
