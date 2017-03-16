@@ -69,14 +69,20 @@ namespace Platform.API.Controllers
                 return BadRequest("Invalid model");
             }
 
-            var result = await _contactService.CreateContact(contact);
-
-            if(!result)
+            try
             {
-                return this.BadRequest();
+                var result = await _contactService.CreateContact(contact);
+                if(!result)
+                {
+                    return this.BadRequest();
+                }
+            }
+            catch(System.Exception)
+            {
+                return BadRequest("Save fail");
             }
 
-            return Ok();
+            return Ok("success");
         }
 
         /// <summary>

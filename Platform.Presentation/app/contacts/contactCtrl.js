@@ -4,18 +4,6 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         $scope.contactTypes = ['ALL', 'CUSTOMER', 'SUPPLIER', 'EMPLOYEE', 'OTHER'];
 
         $scope.contact = {};
-        $scope.contact.Name = '';
-        $scope.contact.Title = '';
-        $scope.contact.IsCompany = false;
-        $scope.contact.ContactType = '';
-        $scope.contact.Email = '';
-        $scope.contact.VatNumber = '';
-        $scope.contact.PhoneNumber = '';
-        $scope.contact.CustomerType = '';
-        $scope.contact.Zip = '';
-        $scope.contact.Street = '';
-        $scope.contact.City = '';
-        $scope.contact.Country = '';
 
         $scope.pageModel = {
             byPage: 10,
@@ -48,15 +36,16 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         }
 
         function SaveContact(model) {
-            //  todo: validate model (Alex O)
-            contactService.saveContact(model)
-                .then(function (result) {
-                    console.log(result.data);
-                    if (result.data) {
-                        $('#modal-normal').modal('hide');
-                        loadContacts();
-                    }
-                });
+            if ($('#createContactForm').valid()) {
+                contactService.saveContact(model)
+                    .then(function (result) {
+                        if (result == 'success') {
+                            $('#create-contact').modal('hide');
+                            resetContactModel();
+                            loadContacts();
+                        }
+                    });
+            }
         }
 
         function SelectContactType(type) {
@@ -246,8 +235,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                 console.log(result);
             });
         };
-
-
+        
         var initValidationBootstrap = function () {
             jQuery('.js-validation-bootstrap').validate({
                 ignore: [],
@@ -286,10 +274,6 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                     'val-phoneus': {
                         phoneUS: true
                     },
-                   
-                    'val-company': {
-                        required: true
-                    }
                 },
                 messages: {
                     'val-username': {
@@ -298,13 +282,27 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                     },
                     'val-contact-type': 'Please select a contact type!',
                     'val-email': 'Please enter a valid email address', 
-                    'val-company': 'Please check if is company!',
                     'val-vat': 'Please enter a number!',  
                     'val-phoneus': 'Please enter a US phone!'
                    
                 }
             });
         };
+
+        var resetContactModel = function () {
+            $scope.contact.Name = '';
+            $scope.contact.Title = '';
+            $scope.contact.IsCompany = false;
+            $scope.contact.ContactType = '';
+            $scope.contact.Email = '';
+            $scope.contact.VatNumber = '';
+            $scope.contact.PhoneNumber = '';
+            $scope.contact.CustomerType = '';
+            $scope.contact.Zip = '';
+            $scope.contact.Street = '';
+            $scope.contact.City = '';
+            $scope.contact.Country = '';
+        }
 
         // Init Bootstrap Forms Validation
         initValidationBootstrap();
@@ -314,5 +312,6 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         initDataTableFull();
 
         loadContacts();
+        resetContactModel();
     }
 ]);
