@@ -30,21 +30,7 @@ namespace Platform.DataAccess.Resources.Repositories
         /// <returns></returns>
         public Task<bool> CreateContact(ContactModel contact)
         {
-            Contact newContact = new Contact {
-                Name = contact.Name,
-                ContactType = contact.ContactType,
-                IsCompany = contact.IsCompany,
-                Email = contact.Email,
-                VatNumber = contact.VatNumber,
-                PhoneNumber = contact.PhoneNumber,
-                Title = contact.Title,
-                Address = new Address {
-                    AddressLine = contact.Street,
-                    City = contact.City,
-                    Country = contact.Country,
-                    Zip = contact.Zip
-                }
-            };
+            var newContact = ParseContactFromModel(contact);
 
             return CreateContact(newContact);
         }
@@ -118,7 +104,16 @@ namespace Platform.DataAccess.Resources.Repositories
         /// <exception cref="System.NotImplementedException"></exception>
         public Task<bool> CreateContacts(IEnumerable<ContactModel> contacts)
         {
-            throw new NotImplementedException();
+            return Task<bool>.Factory.StartNew(() => {
+                foreach(var contactModel in contacts)
+                {
+                    Contact contact = ParseContactFromModel(contactModel);
+
+                    CreateContact(contact);
+                }
+
+                return true;
+            });
         }
 
         /// <summary>
@@ -168,6 +163,11 @@ namespace Platform.DataAccess.Resources.Repositories
                 });
         }
 
+        /// <summary>
+        /// Convert contact esntities to Ui models.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         private IQueryable<ContactModel> ToContactModelList(IQueryable<Contact> query)
         {
             return query
@@ -185,6 +185,30 @@ namespace Platform.DataAccess.Resources.Repositories
                     Title = x.Title,
                     VatNumber = x.VatNumber
                 });
+        }
+
+        /// <summary>
+        /// Convert UI contact model to entity
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        private Contact ParseContactFromModel(ContactModel model)
+        {
+            return new Contact {
+                Name = model.Name,
+                ContactType = model.ContactType,
+                IsCompany = model.IsCompany,
+                Email = model.Email,
+                VatNumber = model.VatNumber,
+                PhoneNumber = model.PhoneNumber,
+                Title = model.Title,
+                Address = new Address {
+                    AddressLine = model.Street,
+                    City = model.City,
+                    Country = model.Country,
+                    Zip = model.Zip
+                }
+            };
         }
     }
 }
