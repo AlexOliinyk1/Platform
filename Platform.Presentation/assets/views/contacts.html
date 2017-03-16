@@ -72,9 +72,9 @@
                 </div>
                
                 <div class="block-content">
-                    <form class="js-validation-bootstrap form-horizontal ng-pristine ng-valid" action="#" method="post" novalidate="novalidate">
+                    <form class="js-validation-bootstrap form-horizontal ng-pristine ng-valid" action="#"  onsubmit="return false;" novalidate="novalidate">
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-skill">Type of contact<span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label" for="val-skill">Type of contact</label>
                             <div class="col-md-7">
                                 <select class="form-control" id="val-skill" name="val-skill" ng-model="contact.ContactType">
                                     <option value="">Please select</option>
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Company <span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label">Company </label>
                             <div class="col-md-8">
                                 <label class="css-input css-checkbox css-checkbox-primary" for="val-company">
                                     <input type="checkbox" id="val-company" name="val-company" value="1" ng-model="contact.IsCompany"><span></span>
@@ -94,20 +94,20 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-title">Title <span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label" for="val-title">Title </label>
                             <div class="col-md-7">
                                 <input class="form-control" type="text" id="val-title" name="val-title" ng-model="contact.Title">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-username">Name <span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label" for="val-username">Name <!--<span class="text-danger">*</span>--></label>
                             <div class="col-md-7">
                                 <input class="form-control valid" type="text" id="val-username" name="val-username" placeholder="Type name..." aria-required="true" aria-describedby="val-username-error" aria-invalid="true" ng-model="contact.Name">
-                                <div id="val-username-error" class="help-block animated fadeInDown">Please enter a name</div>
+                                <!--<div id="val-username-error" class="help-block animated fadeInDown">Please enter a name</div>-->
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-address-search">Input address <span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label" for="val-address-search">Input address </label>
                             <div class="col-md-7">
                                 <input class="form-control" type="text" id="val-address-search" name="val-address-search" ng-autocomplete ng-model="contact.Street">
                             </div>
@@ -119,13 +119,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-email">Email <span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label" for="val-email">Email </label>
                             <div class="col-md-7">
                                 <input class="form-control" type="email" id="val-email" name="val-email" placeholder="Enter your valid email.." ng-model="contact.Email">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-phoneus">Phone number <span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label" for="val-phoneus">Phone number </label>
                             <div class="col-md-7">
                                 <input class="form-control" type="text" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000"
                                        ng-model="contact.PhoneNumber"
@@ -135,15 +135,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-vat">VAT number<span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label" for="val-vat">VAT number</label>
                             <div class="col-md-7">
-                                <input class="form-control" type="number" id="val-vat" name="val-vat" ng-model="contact.VatNumber"
-                                      >
+                                <input class="form-control" type="number" id="val-vat" name="val-vat" ng-model="contact.VatNumber" >
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button class="btn btn-sm btn-primary" type="submit" ng-click="SaveContact(contact)">Submit</button>
+                                <button class="btn btn-sm btn-primary" ng-click="SaveContact(contact)">Submit</button>
                             </div>
                         </div>
                     </form>
