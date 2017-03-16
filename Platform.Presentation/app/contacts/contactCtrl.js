@@ -247,6 +247,68 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
             });
         };
 
+
+        var initValidationBootstrap = function () {
+            jQuery('.js-validation-bootstrap').validate({
+                ignore: [],
+                errorClass: 'help-block animated fadeInDown',
+                errorElement: 'div',
+                errorPlacement: function (error, e) {
+                    jQuery(e).parents('.form-group > div').append(error);
+                },
+                highlight: function (e) {
+                    var elem = jQuery(e);
+
+                    elem.closest('.form-group').removeClass('has-error').addClass('has-error');
+                    elem.closest('.help-block').remove();
+                },
+                success: function (e) {
+                    var elem = jQuery(e);
+
+                    elem.closest('.form-group').removeClass('has-error');
+                    elem.closest('.help-block').remove();
+                },
+                rules: {
+                    'val-contact-type': {
+                        required: true
+                    },
+                    'val-username': {
+                        required: true,
+                        minlength: 3
+                    },
+                    'val-email': {
+                        required: true,
+                        email: true
+                    },
+                    'val-vat': {
+                        number: true
+                    },  
+                    'val-phoneus': {
+                        phoneUS: true
+                    },
+                   
+                    'val-company': {
+                        required: true
+                    }
+                },
+                messages: {
+                    'val-username': {
+                        required: 'Please enter a username',
+                        minlength: 'Your username must consist of at least 3 characters'
+                    },
+                    'val-contact-type': 'Please select a contact type!',
+                    'val-email': 'Please enter a valid email address', 
+                    'val-company': 'Please check if is company!',
+                    'val-vat': 'Please enter a number!',  
+                    'val-phoneus': 'Please enter a US phone!'
+                   
+                }
+            });
+        };
+
+        // Init Bootstrap Forms Validation
+        initValidationBootstrap();
+
         //Apply table styles
         bsDataTables();
         initDataTableFull();

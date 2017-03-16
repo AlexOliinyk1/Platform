@@ -30,12 +30,15 @@ App.config(['$stateProvider', '$urlRouterProvider',
                             serie: true,
                             files: [
                                 'assets/js/plugins/datatables/jquery.dataTables.min.css',
-                                'assets/js/plugins/datatables/jquery.dataTables.min.js'
+                                'assets/js/plugins/datatables/jquery.dataTables.min.js',
+                                'assets/js/plugins/jquery-validation/jquery.validate.min.js',
+                                'assets/js/plugins/jquery-validation/additional-methods.min.js'
                             ]
                         });
                     }]
                 }
             })
+
             .state('dashboard', {
                 url: '/dashboard',
                 templateUrl: 'assets/views/ready_dashboard.html',
