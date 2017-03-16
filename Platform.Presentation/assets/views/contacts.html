@@ -75,9 +75,9 @@
                 <div class="block-content">
                     <form class="js-validation-bootstrap form-horizontal ng-pristine ng-valid" action="#"  onsubmit="return false;" novalidate="novalidate">
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-skill">Type of contact</label>
+                            <label class="col-md-4 control-label" for="val-contact-type">Type of contact <span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <select class="form-control" id="val-skill" name="val-skill" ng-model="contact.ContactType">
+                                <select class="form-control" id="val-contact-type" name="val-contact-type" ng-model="contact.ContactType">
                                     <option value="">Please select</option>
                                     <option value="html">Customer</option>
                                     <option value="css">Supplier</option>
@@ -86,8 +86,9 @@
                                 </select>
                             </div>
                         </div>
+                       
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Company </label>
+                            <label class="col-md-4 control-label">Company <span class="text-danger">*</span></label>
                             <div class="col-md-8">
                                 <label class="css-input css-checkbox css-checkbox-primary" for="val-company">
                                     <input type="checkbox" id="val-company" name="val-company" value="1" ng-model="contact.IsCompany"><span></span>
@@ -101,7 +102,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-username">Name <!--<span class="text-danger">*</span>--></label>
+                            <label class="col-md-4 control-label" for="val-username">Name <span class="text-danger">*</span></label>
                             <div class="col-md-7">
                                 <input class="form-control valid" type="text" id="val-username" name="val-username" placeholder="Type name..." aria-required="true" aria-describedby="val-username-error" aria-invalid="true" ng-model="contact.Name">
                                 <!--<div id="val-username-error" class="help-block animated fadeInDown">Please enter a name</div>-->
@@ -120,7 +121,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val-email">Email </label>
+                            <label class="col-md-4 control-label" for="val-email">Email <span class="text-danger">*</span></label>
                             <div class="col-md-7">
                                 <input class="form-control" type="email" id="val-email" name="val-email" placeholder="Enter your valid email.." ng-model="contact.Email">
                             </div>
