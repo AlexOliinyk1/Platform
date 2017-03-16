@@ -21,7 +21,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
             byPage: 10,
             currentPage: 0,
             searchWord: '',
-            contactType: ''
+            contactType: $scope.contactTypes[0]
         };
 
         $scope.SaveContact = SaveContact;

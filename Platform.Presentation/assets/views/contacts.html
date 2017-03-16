@@ -45,7 +45,7 @@
         <div class="block-header">
             <ul class="nav nav-tabs" data-js-tabs="">
                 <li ng-repeat="type in contactTypes">
-                    <button class="btn btn-default" href="#btabswo-static-all" ng-click="SelectContactType(type)">{{type}}</button>
+                    <button class="btn" href="#btabswo-static-all" ng-class="type==pageModel.contactType?'btn-info':'btn-default'" ng-click="SelectContactType(type)">{{type}}</button>
                 </li>
             </ul>
         </div>
