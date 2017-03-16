@@ -35,22 +35,19 @@ namespace Platform.API.Controllers
         /// <param name="page">The page.</param>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<ContactListModel> Get([FromBody]ContactsPagingModel page)
+        public async Task<IEnumerable<ContactListModel>> Get([FromUri]ContactsPagingModel page)
         {
-            return new List<ContactListModel> {
-                new ContactListModel { Name = "John Doe", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe1", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe2", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe3", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe4", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe5", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe6", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe7", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe8", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe9", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe10", Address = "Some street", ZipCode="0000" },
-                new ContactListModel { Name = "John Doe11", Address = "Some street", ZipCode="0000" },
-            }; //await _contactService.GetContacts(page);
+            page.SearchWord = string.Empty;
+
+            try
+            {
+                return await _contactService.GetContacts(page);
+            }
+            catch(System.Exception)
+            {
+
+                throw;
+            }
         }
 
         /// <summary>

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ContactTypes.cs" />
     <Compile Include="Models\Auth\UserModel.cs" />
     <Compile Include="Models\Contacts\ContactListModel.cs" />
     <Compile Include="Models\Contacts\ContactModel.cs" />

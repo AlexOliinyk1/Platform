@@ -16,7 +16,7 @@ namespace Platform.DataAccess.Resources.Entities
         
         public bool IsCompany { get; set; }
         
-        public string ContatctType { get; set; }
+        public string ContactType { get; set; }
         
         public string Email { get; set; }
         

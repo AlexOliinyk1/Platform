@@ -51,10 +51,10 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                 ],
                 pageLength: 10,
                 lengthMenu: [[5, 10, 15, 20], [5, 10, 15, 20]],
-                dom: 'l<"toolbar"> frtip',
+                //dom: 'l<"toolbar"> frtip',
                 initComplete: function () {
-                    $("div.toolbar")
-                       .html('<button class="btn btn-info" data-toggle="modal" data-target="#modal-normal" type="button">Add New</button>');
+                    //$("div.toolbar")
+                    //   .html('');
                 }
             });
         };
@@ -212,7 +212,7 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         };
 
         var loadContacts = function () {
-            contactService.loadContacts($scope.pageModel.page, $scope.pageModel.byPage, $scope.pageModel.searchWord, $scope.pageModel.contactType).then(function (result) {
+            contactService.loadContacts($scope.pageModel.currentPage, $scope.pageModel.byPage, $scope.pageModel.searchWord, $scope.pageModel.contactType).then(function (result) {
                 var datatable = jQuery('.js-dataTable-full').dataTable().api();
 
                 datatable.clear();

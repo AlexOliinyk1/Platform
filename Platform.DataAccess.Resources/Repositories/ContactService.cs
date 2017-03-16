@@ -7,6 +7,7 @@ using System.Linq;
 using System.Data.Entity;
 using Platform.DataAccess.Resources.Entities;
 using System.Data.Entity.Migrations;
+using Platform.Core.Common;
 
 namespace Platform.DataAccess.Resources.Repositories
 {
@@ -31,7 +32,7 @@ namespace Platform.DataAccess.Resources.Repositories
         {
             Contact newContact = new Contact {
                 Name = contact.Name,
-                ContatctType = contact.ContactType,
+                ContactType = contact.ContactType,
                 IsCompany = contact.IsCompany,
                 Email = contact.Email,
                 VatNumber = contact.VatNumber,
@@ -82,13 +83,22 @@ namespace Platform.DataAccess.Resources.Repositories
             int skip = page.CurrentPage * page.ByPage;
 
             var pagedQuery = _context.Contacts
+                .OrderBy(x => x.Name)
                 .Where(x =>
                     x.Name.Contains(page.SearchWord)
                     || x.Address.AddressLine.Contains(page.SearchWord)
                     || x.Address.Zip.Contains(page.SearchWord)
-                )
-                .Skip(skip)
-                .Take(page.ByPage);
+                );
+
+            if(!ContactTypes.ALL.Equals(page.ContactType, StringComparison.InvariantCultureIgnoreCase))
+            {
+                pagedQuery = pagedQuery
+                    .Where(x => x.ContactType.Equals(page.ContactType, StringComparison.InvariantCultureIgnoreCase));
+            }
+
+            //pagedQuery = pagedQuery
+            //    .Skip(skip)
+            //    .Take(page.ByPage);
 
             return ToContactList(pagedQuery).ToListAsync();
         }
