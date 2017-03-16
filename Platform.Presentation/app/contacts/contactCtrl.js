@@ -27,15 +27,16 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
         $scope.SaveContact = SaveContact;
         $scope.SelectContactType = SelectContactType;
         $scope.SendExcel = sendExcel;
+        //  replaced by link on UI
         $scope.DownloadExel = downloadExel;
 
         function downloadExel() {
             contactService.downloadExcel().then(function (file) {
                 var anchor = angular.element('<a/>');
                 anchor.attr({
-                    href: 'data:attachment/csv;charset=utf-8,' + encodeURI(file.data),
+                    href: 'data:attachment/xlsx;charset=utf-8,' + encodeURI(file),
                     target: '_blank',
-                    download: 'contacts.csv'
+                    download: 'contacts.xlsx'
                 })[0].click();
             });
         }

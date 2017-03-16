@@ -110,19 +110,17 @@ namespace Platform.API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetContactsDocument")]
-        public HttpResponseMessage GetContactsDocument()
+        public async Task<HttpResponseMessage> GetContactsDocument()
         {
             var response = Request.CreateResponse(HttpStatusCode.OK);
             MediaTypeHeaderValue mediaType = new MediaTypeHeaderValue("application/octet-stream");
-            response.Content = new StreamContent(_excelParser.ParseToStream(new List<ContactModel>()
-            {
-                new ContactModel()
-                {
-                    Name = "Test"
-                }
-            }));
+
+            List<ContactModel> contacts = await _contactService.GetAllContactModels();
+
+            response.Content = new StreamContent(_excelParser.ParseToStream(contacts));
             response.Content.Headers.ContentType = mediaType;
             response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("fileName") {FileName = "Contacts.xlsx"};
+
             return response;
         }
 

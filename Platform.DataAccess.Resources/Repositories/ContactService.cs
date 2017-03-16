@@ -74,6 +74,15 @@ namespace Platform.DataAccess.Resources.Repositories
         }
 
         /// <summary>
+        /// Get full models of all contacts 
+        /// </summary>
+        /// <returns></returns>
+        public Task<List<ContactModel>> GetAllContactModels()
+        {
+            return ToContactModelList(_context.Contacts.AsQueryable()).ToListAsync();
+        }
+
+        /// <summary>
         /// Gets the contacts.
         /// </summary>
         /// <param name="page">The page.</param>
@@ -156,6 +165,25 @@ namespace Platform.DataAccess.Resources.Repositories
                     Name = x.Name,
                     ZipCode = x.Address.Zip,
                     Address = x.Address.AddressLine
+                });
+        }
+
+        private IQueryable<ContactModel> ToContactModelList(IQueryable<Contact> query)
+        {
+            return query
+                .Include(x => x.Address)
+                .Select(x => new ContactModel {
+                    Name = x.Name,
+                    Zip = x.Address.Zip,
+                    Street = x.Address.AddressLine,
+                    City = x.Address.City,
+                    ContactType = x.ContactType,
+                    Country = x.Address.Country,
+                    Email = x.Email,
+                    IsCompany = x.IsCompany,
+                    PhoneNumber = x.PhoneNumber,
+                    Title = x.Title,
+                    VatNumber = x.VatNumber
                 });
         }
     }
