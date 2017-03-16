@@ -1,10 +1,12 @@
 ﻿
 App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactService',
     function ($scope, $localStorage, $window, contactService, uploadExcel) {
+        $scope.contactTypes = ['ALL', 'CUSTOMER', 'SUPPLIER', 'EMPLOYEE', 'OTHER'];
+
         $scope.contact = {};
         $scope.contact.Name = '';
         $scope.contact.Title = '';
-        $scope.contact.IsCompany = '';
+        $scope.contact.IsCompany = false;
         $scope.contact.ContactType = '';
         $scope.contact.Email = '';
         $scope.contact.VatNumber = '';
@@ -22,20 +24,39 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
             contactType: ''
         };
 
-        $scope.contactTypes = ['ALL', 'CUSTOMER', 'SUPPLIER', 'EMPLOYEE', 'OTHER'];
-
-        function saveContact(model) {
-
-
-        }
-
+        $scope.SaveContact = SaveContact;
+        $scope.SelectContactType = SelectContactType;
         $scope.SendExcel = sendExcel;
+        $scope.DownloadExel = downloadExel;
+
+        function downloadExel() {
+            contactService.downloadExcel().then(function (file) {
+                var anchor = angular.element('<a/>');
+                anchor.attr({
+                    href: 'data:attachment/csv;charset=utf-8,' + encodeURI(file.data),
+                    target: '_blank',
+                    download: 'contacts.csv'
+                })[0].click();
+            });
+        }
 
         function sendExcel(file) {
             contactService.uploadExcel(file);
         }
 
-        $scope.SelectContactType = function (type) {
+        function SaveContact(model) {
+            //  todo: validate model (Alex O)
+            contactService.saveContact(model)
+                .then(function (result) {
+                    console.log(result.data);
+                    if (result.data) {
+                        $('#modal-normal').modal('hide');
+                        loadContacts();
+                    }
+                });
+        }
+
+        function SelectContactType(type) {
             $scope.pageModel.contactType = type;
             loadContacts();
         }

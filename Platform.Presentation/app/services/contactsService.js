@@ -15,7 +15,18 @@ App.factory('contactService', ['$http', '$location', function ($http, $location)
         }).then(function (result) {
             return result.data;
         });
-    }
+    };
+
+    var createContact = function (contactModel) {
+        return $http({
+            method: 'post',
+            url: baseUrl + '/api/Contacts/SaveContact',
+            data:contactModel,
+            headers: { 'Content-Type': 'application/json' }
+        }).then(function (result) {
+            return result.data;
+        });
+    };
 
     var uploadExcel = function (excelDocument) {
         var fd = new FormData();
@@ -29,10 +40,23 @@ App.factory('contactService', ['$http', '$location', function ($http, $location)
         }).then(function (result) {
             return result.data;
         });
-    }
+    };
+
+    var downloadExcel = function () {
+        return $http({
+            method: 'get',
+            url: baseUrl + '/api/Contacts/GetContactsDocument',
+            headers: { 'Content-Type': 'text/csv' },
+            transformRequest: angular.identity
+        }).then(function (result) {
+            return result.data;
+        });
+    };
 
     return {
         loadContacts: loadContacts,
-        uploadExcel: uploadExcel
+        uploadExcel: uploadExcel,
+        downloadExcel: downloadExcel,
+        saveContact: createContact
     };
 }]);
