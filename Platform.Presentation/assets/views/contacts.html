@@ -1,3 +1,9 @@
+<div class="content bg-image overflow-hidden ng-scope" style="background-image: url('/assets/img/photos/photo3@2x.jpg');">
+    <div class="push-50-t push-15">
+        <h1 class="h2 text-white animated zoomIn">Contacts</h1>
+        <!--<h2 class="h5 text-white-op animated zoomIn">Welcome Administrator</h2>-->
+    </div>
+</div>
 <div class="content bg-white border-b ng-scope">
     <div class="row items-push text-uppercase">
         <div class="col-xs-6 col-sm-3">
@@ -26,10 +32,14 @@
 <!-- Page Content -->
 <div class="content">
     <div class="row">
-        <label class="btn btn-default btn-file">
-            Browse <input ng-model="File" type="file" hidden onchange="angular.element(this).scope().SendExcel(this.files[0])">
-        </label>
-    </div>
+        <div class="col-md-12">
+            <button class="btn btn-info push-5-r push-10" type="button"><i class="fa fa-download"></i> Download</button>
+            <label class="btn btn-primary btn-file push-10">
+                <i class="fa fa-upload"></i>  Upload <input type="file" style="display: none;" ng-model="File" hidden onchange="angular.element(this).scope().SendExcel(this.files[0])">
+            </label>
+            <button class="btn btn-success push-5-r push-10 pull-right" data-toggle="modal" data-target="#modal-normal" type="button"><i class="fa fa-plus"></i> Add New</button>
+        </div>
+        </div>
     <div class="block">
         <div class="block-header">
             <ul class="nav nav-tabs" data-js-tabs="">
@@ -55,12 +65,6 @@
                         </li>
                         <li>
                             <button type="button" data-js-block-option="" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                        </li>
-                        <li>
-                            <button type="button" data-js-block-option="" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
-                        </li>
-                        <li>
-                            <button type="button" data-js-block-option="" data-action="close"><i class="si si-close"></i></button>
                         </li>
                     </ul>
                 </li>

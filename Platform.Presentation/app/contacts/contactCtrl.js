@@ -37,10 +37,10 @@ App.controller('ContactsCtrl', ['$scope', '$localStorage', '$window', 'contactSe
                 ],
                 pageLength: 10,
                 lengthMenu: [[5, 10, 15, 20], [5, 10, 15, 20]],
-                dom: 'l<"toolbar"> frtip',
+                //dom: 'l<"toolbar"> frtip',
                 initComplete: function () {
-                    $("div.toolbar")
-                       .html('<button class="btn btn-info" data-toggle="modal" data-target="#modal-normal" type="button">Add New</button>');
+                    //$("div.toolbar")
+                    //   .html('');
                 }
             });
         };
