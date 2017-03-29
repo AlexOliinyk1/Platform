@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
+using Platform.Core.Common;
 using Platform.Core.Models.Contacts;
 using Platform.Core.Services;
 using Platform.Core.Utilities;
-using System.Threading.Tasks;
-using System.Web;
-using Platform.Core.Common;
 
 namespace Platform.API.Controllers
 {
@@ -47,11 +47,18 @@ namespace Platform.API.Controllers
             {
                 return await _contactService.GetContacts(page);
             }
-            catch(System.Exception)
+            catch(Exception)
             {
-                //  todo: handle error 
+                //  todo: handle error
                 return new List<ContactListModel>();
             }
+        }
+
+        [HttpGet]
+        [Route("GetAllContactModels")]
+        public HttpResponseMessage GetAllContactModels()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, _contactService.GetAllContactModels().Result);
         }
 
         /// <summary>
@@ -77,7 +84,7 @@ namespace Platform.API.Controllers
                     return this.BadRequest();
                 }
             }
-            catch(System.Exception)
+            catch(Exception)
             {
                 return BadRequest("Save fail");
             }

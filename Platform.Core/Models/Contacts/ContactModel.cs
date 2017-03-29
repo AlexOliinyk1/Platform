@@ -3,10 +3,12 @@
 namespace Platform.Core.Models.Contacts
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class ContactModel
     {
+        public int Id { get; set; }
+
         [Required]
         [Display(Name = "Name")]
         public string Name { get; set; }
@@ -46,8 +48,5 @@ namespace Platform.Core.Models.Contacts
 
         [Display(Name = "Country")]
         public string Country { get; set; }
-
-
-       
     }
 }
