@@ -1,11 +1,9 @@
 {
-  "name": "javascript-development-environment",
+  "name": "platform",
   "version": "1.0.0",
-  "description": "JavaScript development environment Pluralsight course by Cory House",
   "scripts": {
   },
-  "author": "Cory House",
-  "license": "MIT",
+  "author": "Max Palamarchuk",
   "dependencies": {
     "whatwg-fetch": "1.0.0"
   },
