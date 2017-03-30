@@ -2,6 +2,10 @@
   "name": "platform",
   "version": "1.0.0",
   "scripts": {
+    "open:src": "node buildScripts/server.js",
+    "localtunnel": "lt --port 3000",
+    "start": "npm-run-all --parallel open:src",
+    "share": "npm-run-all --parallel open:src  localtunnel"
   },
   "author": "Max Palamarchuk",
   "dependencies": {
