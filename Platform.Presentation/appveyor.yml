@@ -11,4 +11,6 @@ install:
 before_build:
   -nuget restore
 
-build: off
+build: 
+  verbosity: minimal
+  publish_wap: true
