@@ -18,7 +18,7 @@ const paths = {
   dist: './dist/',
   scripts: `${root}/app/**/*.js`,
   styles: `${root}/assets/sass/*.scss`,
-  templates: `${root}/app/**/*.html`,
+  templates: `${root}/app/**/*.template.html`,
   modules: [
     'jquery/dist/jquery.min.js',
     'angular/angular.min.js',
@@ -73,7 +73,7 @@ gulp.task('modulesCSS', () => {
     .pipe(gulp.dest(paths.dist + 'css/'));
 });
 
-gulp.task('styles', () => {
+gulp.task('styles',['copy'], () => {
   return gulp.src(paths.styles)
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(gulp.dest(paths.dist + 'css/'));
@@ -113,7 +113,6 @@ gulp.task('watch', ['serve', 'scripts'], () => {
 });
 
 gulp.task('default', [
-  'copy',
   'styles',
   'serve',
   'watch'
