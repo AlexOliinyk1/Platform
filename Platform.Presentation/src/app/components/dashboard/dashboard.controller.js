@@ -1,10 +1,17 @@
 (function() {
+    angular
+       .module('app')
+       .component('dashboard',{
+           template:'dashboard.template.html',
+           controller: DashboardController
+       })
 
-    function dashboardController(){
-        var vm = this;
-        vm.addFile = addFile;
-        vm.file = "";
-        vm.files = [{
+       
+    function DashboardController(){
+        var self = this;
+        self.addFile = addFile;
+        self.file = "";
+        self.files = [{
             name:"test1",
             description:"desc1"
         },{
@@ -13,11 +20,8 @@
         }];
 
         function addFile(){
-            vm.files.push(vm.file);
+            self.files.push(self.file);
         }
     }
-    
-    angular
-       .module('app')
-       .controller('dashboardController',dashboardController)
+
 })();

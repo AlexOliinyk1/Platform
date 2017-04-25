@@ -1,8 +1,8 @@
-<div data-ng-controller="dashboardController as vm">
+<div ng-controller="DashboardController as vm">
     <h2>Dashboard</h2>
     <div>
         <label>Filter</label>
-        <input data-ng-model="vm.file"/>
+        <input ng-model="vm.file"/>
     </div>
     <table class="table table-bordered table-striped table-condensed">
         <thead>
@@ -10,7 +10,7 @@
         <th>Description</th>
         </thead>
         <tbody>
-        <tr data-ng-repeat="p in vm.files">
+        <tr ng-repeat="p in vm.files">
             <td>{{p.name}}</td>
             <td>{{p.description}}</td>
         </tr>
