@@ -6,11 +6,12 @@
     };
 
     angular
-        .module('components.dashboard')
+        .module('components')
         .component('dashboard', dashboard)
         .config(function ($stateProvider) {
             $stateProvider
                 .state('dashboard', {
+                    parent:'app',
                     url: '/dashboard',
                     component: 'dashboard'
                 });

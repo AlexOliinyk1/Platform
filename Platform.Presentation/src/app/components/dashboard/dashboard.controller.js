@@ -18,6 +18,6 @@
     }
 
     angular
-        .module('components.dashboard')
+        .module('components')
         .controller('DashboardController', DashboardController);
 })();

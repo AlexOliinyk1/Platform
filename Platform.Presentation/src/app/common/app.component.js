@@ -11,7 +11,7 @@
             $stateProvider
                 .state('app', {
                     redirectTo: 'dashboard',
-                    url: '/dashboard',
+                    url: '/app',
                     data: {
                         requiredAuth: false
                     },

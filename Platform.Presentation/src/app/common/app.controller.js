@@ -10,6 +10,7 @@
         //     });
         // };
     }
+    
     angular
         .module('common')
         .controller('AppController', AppController);

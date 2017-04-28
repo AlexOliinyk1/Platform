@@ -20,15 +20,15 @@ const paths = {
   styles: `${root}/assets/sass/*.scss`,
   templates: `${root}/app/**/*.template.html`,
   modules: [
-    'jquery/dist/jquery.min.js',
-    'angular/angular.min.js',
-    'angular-ui-router/release/angular-ui-router.min.js',
-    'angular-loading-bar/build/loading-bar.min.js',
-    'angular-animate/angular-animate.min.js',
-    'angular-resource/angular-resource.min.js',
-    'angular-smart-table/dist/smart-table.min.js',
-    'AngularJS-Toaster/toaster.min.js',
-    'bootstrap/dist/js/bootstrap.min.js'
+    'jquery/dist/jquery.js',
+    'angular/angular.js',
+    'angular-ui-router/release/angular-ui-router.js',
+    'angular-animate/angular-animate.js',
+    'angular-resource/angular-resource.js',
+    'angular-loading-bar/build/loading-bar.js',
+    'angular-smart-table/dist/smart-table.js',
+    'AngularJS-Toaster/toaster.js',
+    'bootstrap/dist/js/bootstrap.js'
   ],
   modulesCSS:[
     'angular-loading-bar/build/loading-bar.min.css',
